@@ -34,6 +34,12 @@ class SingleSegment(TypedDict):
     end: float
     text: str
     avg_logprob: NotRequired[float]
+    no_speech_prob: NotRequired[float]
+    compression_ratio: NotRequired[float]
+    tokens_len: NotRequired[int]
+    tokens_per_sec: NotRequired[float]
+    repeat_adjacent_frac: NotRequired[float]
+    repeat_unique_frac: NotRequired[float]
 
 
 class SegmentData(TypedDict):

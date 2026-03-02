@@ -2,6 +2,7 @@ import os
 from typing import List, Optional, Union
 from dataclasses import replace
 
+import zlib
 import ctranslate2
 import faster_whisper
 import numpy as np
@@ -17,6 +18,21 @@ from whisperx.vads import Vad, Silero, Pyannote
 from whisperx.log_utils import get_logger
 
 logger = get_logger(__name__)
+
+
+def _compression_ratio(text: str) -> float:
+    text_bytes = text.encode("utf-8")
+    return len(text_bytes) / len(zlib.compress(text_bytes))
+
+
+def _token_repetition_metrics(text_tokens: List[int], duration: float) -> tuple[float, float, float]:
+    tokens_per_sec = len(text_tokens) / max(1e-6, duration)
+    adjacent_repeats = sum(
+        1 for i in range(1, len(text_tokens)) if text_tokens[i] == text_tokens[i - 1]
+    )
+    repeat_adjacent_frac = adjacent_repeats / max(1, len(text_tokens) - 1)
+    repeat_unique_frac = 1.0 - (len(set(text_tokens)) / max(1, len(text_tokens)))
+    return tokens_per_sec, repeat_adjacent_frac, repeat_unique_frac
 
 
 def find_numeral_symbol_tokens(tokenizer):
@@ -62,6 +78,8 @@ class WhisperModel(faster_whisper.WhisperModel):
         result = self.model.generate(
                 encoder_output,
                 [prompt] * batch_size,
+                return_scores=True,
+                return_no_speech_prob=True,
                 beam_size=options.beam_size,
                 patience=options.patience,
                 length_penalty=options.length_penalty,
@@ -70,11 +88,9 @@ class WhisperModel(faster_whisper.WhisperModel):
                 suppress_tokens=options.suppress_tokens,
                 no_repeat_ngram_size=options.no_repeat_ngram_size,
                 repetition_penalty=options.repetition_penalty,
-                return_scores=True,
             )
 
-        tokens_batch = [x.sequences_ids[0] for x in result]
-
+        tokens_batch = [r.sequences_ids[0] for r in result]
         avg_logprobs = []
         for res in result:
             seq_len = len(res.sequences_ids[0])
@@ -90,7 +106,13 @@ class WhisperModel(faster_whisper.WhisperModel):
 
         text = decode_batch(tokens_batch)
 
-        return {'text': text, 'avg_logprob': avg_logprobs}
+        return {
+            "text": text,
+            "avg_logprob": avg_logprobs,
+            "no_speech_prob": [r.no_speech_prob for r in result],
+            "tokens": tokens_batch,
+            "compression_ratio": [_compression_ratio(t) for t in text],
+        }
 
     def encode(self, features: np.ndarray) -> ctranslate2.StorageView:
         # When the model is running on multiple GPUs, the encoder output should be moved
@@ -270,17 +292,40 @@ class FasterWhisperPipeline(Pipeline):
                 print(f"Progress: {percent_complete:.2f}%...")
             text = out['text']
             avg_logprob = out['avg_logprob']
+            tokens = out['tokens']
+            no_speech_prob = out['no_speech_prob']
+            compression_ratio = out['compression_ratio']
+
             if batch_size in [0, 1, None]:
                 text = text[0]
                 avg_logprob = avg_logprob[0]
+                tokens = tokens[0]
+                no_speech_prob = no_speech_prob[0]
+                compression_ratio = compression_ratio[0]
             if verbose:
                 print(f"Transcript: [{round(vad_segments[idx]['start'], 3)} --> {round(vad_segments[idx]['end'], 3)}] {text}")
+
+            start_t = round(vad_segments[idx]['start'], 3)
+            end_t = round(vad_segments[idx]['end'], 3)
+            duration = end_t - start_t
+
+            text_tokens = [t for t in tokens if t < self.tokenizer.eot]
+            tokens_per_sec, repeat_adjacent_frac, repeat_unique_frac = _token_repetition_metrics(
+                text_tokens, duration
+            )
+
             segments.append(
                 {
                     "text": text,
-                    "start": round(vad_segments[idx]['start'], 3),
-                    "end": round(vad_segments[idx]['end'], 3),
-                    "avg_logprob": avg_logprob,
+                    "start": start_t,
+                    "end": end_t,
+                    "avg_logprob": float(avg_logprob),
+                    "no_speech_prob": float(no_speech_prob),
+                    "compression_ratio": float(compression_ratio),
+                    "tokens_len": int(len(text_tokens)),
+                    "tokens_per_sec": float(tokens_per_sec),
+                    "repeat_adjacent_frac": float(repeat_adjacent_frac),
+                    "repeat_unique_frac": float(repeat_unique_frac),
                 }
             )
 
