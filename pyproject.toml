@@ -1,7 +1,7 @@
 [project]
-urls = { repository = "https://github.com/m-bain/whisperx" }
+urls = { repository = "https://github.com/E-Sensia/echo-whisperX" }
 authors = [{ name = "Max Bain" }]
-name = "whisperx"
+name = "echo-whisperx"
 version = "3.8.2"
 description = "Time-Accurate Automatic Speech Recognition using Whisper."
 readme = "README.md"
