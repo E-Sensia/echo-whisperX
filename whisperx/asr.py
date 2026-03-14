@@ -13,7 +13,7 @@ from transformers import Pipeline
 from transformers.pipelines.pt_utils import PipelineIterator
 
 from whisperx.audio import N_SAMPLES, SAMPLE_RATE, load_audio, log_mel_spectrogram
-from whisperx.schema import SingleSegment, TranscriptionResult
+from whisperx.schema import SingleSegment, TranscriptionResult, ProgressCallback
 from whisperx.vads import Vad, Silero, Pyannote
 from whisperx.log_utils import get_logger
 
@@ -227,6 +227,7 @@ class FasterWhisperPipeline(Pipeline):
         print_progress=False,
         combined_progress=False,
         verbose=False,
+        progress_callback: ProgressCallback = None,
     ) -> TranscriptionResult:
         if isinstance(audio, str):
             audio = load_audio(audio)
@@ -290,6 +291,8 @@ class FasterWhisperPipeline(Pipeline):
                 base_progress = ((idx + 1) / total_segments) * 100
                 percent_complete = base_progress / 2 if combined_progress else base_progress
                 print(f"Progress: {percent_complete:.2f}%...")
+            if progress_callback is not None:
+                progress_callback(((idx + 1) / total_segments) * 100)
             text = out['text']
             avg_logprob = out['avg_logprob']
             tokens = out['tokens']
