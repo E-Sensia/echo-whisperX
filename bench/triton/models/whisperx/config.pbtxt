@@ -1,0 +1,54 @@
+name: "whisperx"
+backend: "python"
+
+input [
+  {
+    name: "audio"
+    data_type: TYPE_FP32
+    dims: [-1]
+  },
+  {
+    name: "parameters"
+    data_type: TYPE_STRING
+    dims: [1]
+    optional: true
+  }
+]
+
+output [
+  {
+    name: "segments"
+    data_type: TYPE_STRING
+    dims: [1]
+  }
+]
+
+max_batch_size: 16
+
+dynamic_batching {
+  preferred_batch_size: [4, 8, 16]
+  max_queue_delay_microseconds: 100000
+  priority_levels: 3
+  default_priority_level: 2
+  priority_queue_policy {
+    key: 2
+    value: {
+      timeout_action: REJECT
+      default_timeout_microseconds: 60000000
+    }
+  }
+  priority_queue_policy {
+    key: 3
+    value: {
+      timeout_action: REJECT
+      default_timeout_microseconds: 120000000
+    }
+  }
+}
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+  }
+]
