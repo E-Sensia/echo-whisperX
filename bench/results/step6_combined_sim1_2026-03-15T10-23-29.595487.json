@@ -1,0 +1,41 @@
+{
+  "config_name": "step6_combined_sim1",
+  "timestamp": "2026-03-15T10:23:29.595487",
+  "n_calls": 1,
+  "chunk_duration": 15.0,
+  "total_chunks": 1,
+  "chunks_over_budget": 0,
+  "avg_latency": 0.46828156302217394,
+  "p50_latency": 0.46828156302217394,
+  "p95_latency": 0.46828156302217394,
+  "max_latency": 0.46828156302217394,
+  "throughput_chunks_per_sec": 2.1334614820100657,
+  "total_wall_clock": 0.4687218440230936,
+  "total_audio_processed": 14.577,
+  "effective_rtf": 0.03215489085704148,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 0.46828156302217394,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

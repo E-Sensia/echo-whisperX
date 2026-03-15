@@ -1,0 +1,43 @@
+{
+  "config_name": "step8_precompute_xcall1",
+  "timestamp": "2026-03-15T11:38:57.491905",
+  "n_calls": 1,
+  "chunk_duration": 15.0,
+  "total_chunks": 1,
+  "chunks_over_budget": 0,
+  "avg_latency": 0.47170652996283025,
+  "p50_latency": 0.47170652996283025,
+  "p95_latency": 0.47170652996283025,
+  "max_latency": 0.47170652996283025,
+  "throughput_chunks_per_sec": 2.119962172410033,
+  "total_wall_clock": 0.47170652996283025,
+  "total_audio_processed": 14.577,
+  "effective_rtf": 0.03235964395711259,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 0.47170652996283025,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step8_precompute",
+    "description": "Precompute mel spectrograms on CPU threads before GPU inference",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "num_workers": 0,
+    "precompute_features": true,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

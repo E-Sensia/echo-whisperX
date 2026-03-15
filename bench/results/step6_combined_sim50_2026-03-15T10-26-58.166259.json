@@ -1,0 +1,2554 @@
+{
+  "config_name": "step6_combined_sim50",
+  "timestamp": "2026-03-15T10:26:58.166259",
+  "n_calls": 50,
+  "chunk_duration": 15.0,
+  "total_chunks": 360,
+  "chunks_over_budget": 114,
+  "avg_latency": 12.642334220783798,
+  "p50_latency": 11.912429369986057,
+  "p95_latency": 24.66945644200314,
+  "max_latency": 28.49060790601652,
+  "throughput_chunks_per_sec": 1.9618497588107715,
+  "total_wall_clock": 183.5002901640255,
+  "total_audio_processed": 5052.4595,
+  "effective_rtf": 0.03631900268849765,
+  "per_chunk": [
+    {
+      "call_id": 7,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.6166811870061792,
+      "over_budget": false
+    },
+    {
+      "call_id": 14,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 7.97610489197541,
+      "over_budget": false
+    },
+    {
+      "call_id": 9,
+      "chunk_idx": 0,
+      "chunk_duration": 11.273,
+      "latency": 19.371108988998458,
+      "over_budget": true
+    },
+    {
+      "call_id": 8,
+      "chunk_idx": 0,
+      "chunk_duration": 12.99,
+      "latency": 21.171731519978493,
+      "over_budget": true
+    },
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 21.770721458015032,
+      "over_budget": true
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 23.244454524014145,
+      "over_budget": true
+    },
+    {
+      "call_id": 5,
+      "chunk_idx": 0,
+      "chunk_duration": 13.36,
+      "latency": 24.26640772499377,
+      "over_budget": true
+    },
+    {
+      "call_id": 13,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.7945485999807715,
+      "over_budget": false
+    },
+    {
+      "call_id": 13,
+      "chunk_idx": 1,
+      "chunk_duration": 6.398,
+      "latency": 26.922456502041314,
+      "over_budget": true
+    },
+    {
+      "call_id": 11,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 3.8274536540266126,
+      "over_budget": false
+    },
+    {
+      "call_id": 11,
+      "chunk_idx": 1,
+      "chunk_duration": 2.88,
+      "latency": 26.601802902005147,
+      "over_budget": true
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 8.647561513003893,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 1,
+      "chunk_duration": 1.662,
+      "latency": 24.770356594002806,
+      "over_budget": true
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 9.969687152013648,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 1,
+      "chunk_duration": 7.93,
+      "latency": 24.860617254977114,
+      "over_budget": true
+    },
+    {
+      "call_id": 12,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 10.361956015985925,
+      "over_budget": false
+    },
+    {
+      "call_id": 12,
+      "chunk_idx": 1,
+      "chunk_duration": 13.42,
+      "latency": 24.66945644200314,
+      "over_budget": true
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 10.814234521996696,
+      "over_budget": false
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 1,
+      "chunk_duration": 5.047,
+      "latency": 24.524984829011373,
+      "over_budget": true
+    },
+    {
+      "call_id": 10,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 11.52071342599811,
+      "over_budget": false
+    },
+    {
+      "call_id": 10,
+      "chunk_idx": 1,
+      "chunk_duration": 9.52,
+      "latency": 24.2776525960071,
+      "over_budget": true
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 12.488645186007489,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 1,
+      "chunk_duration": 7.552,
+      "latency": 24.138253376004286,
+      "over_budget": true
+    },
+    {
+      "call_id": 15,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 14.152897078020032,
+      "over_budget": false
+    },
+    {
+      "call_id": 15,
+      "chunk_idx": 1,
+      "chunk_duration": 7.24,
+      "latency": 23.484737866965588,
+      "over_budget": true
+    },
+    {
+      "call_id": 18,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 7.157680310017895,
+      "over_budget": false
+    },
+    {
+      "call_id": 18,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 25.97349614702398,
+      "over_budget": true
+    },
+    {
+      "call_id": 18,
+      "chunk_idx": 2,
+      "chunk_duration": 4.04,
+      "latency": 19.911497213994153,
+      "over_budget": true
+    },
+    {
+      "call_id": 22,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 15.042207874008454,
+      "over_budget": true
+    },
+    {
+      "call_id": 22,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.63567432196578,
+      "over_budget": true
+    },
+    {
+      "call_id": 22,
+      "chunk_idx": 2,
+      "chunk_duration": 2.674,
+      "latency": 17.364730817032978,
+      "over_budget": true
+    },
+    {
+      "call_id": 30,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 18.10006136802258,
+      "over_budget": true
+    },
+    {
+      "call_id": 30,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 22.928577387006953,
+      "over_budget": true
+    },
+    {
+      "call_id": 30,
+      "chunk_idx": 2,
+      "chunk_duration": 3.08,
+      "latency": 17.489922198990826,
+      "over_budget": true
+    },
+    {
+      "call_id": 26,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 28.49060790601652,
+      "over_budget": true
+    },
+    {
+      "call_id": 26,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.642811035038903,
+      "over_budget": true
+    },
+    {
+      "call_id": 26,
+      "chunk_idx": 2,
+      "chunk_duration": 7.8,
+      "latency": 15.80065382400062,
+      "over_budget": true
+    },
+    {
+      "call_id": 17,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 8.93573606602149,
+      "over_budget": false
+    },
+    {
+      "call_id": 17,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 25.12699168600375,
+      "over_budget": true
+    },
+    {
+      "call_id": 17,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 19.63044394698227,
+      "over_budget": true
+    },
+    {
+      "call_id": 17,
+      "chunk_idx": 3,
+      "chunk_duration": 2.74,
+      "latency": 15.019739856012166,
+      "over_budget": true
+    },
+    {
+      "call_id": 16,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 12.027387026988436,
+      "over_budget": false
+    },
+    {
+      "call_id": 16,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 24.2448662550305,
+      "over_budget": true
+    },
+    {
+      "call_id": 16,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 18.426460127986502,
+      "over_budget": true
+    },
+    {
+      "call_id": 16,
+      "chunk_idx": 3,
+      "chunk_duration": 11.228,
+      "latency": 15.015118222974706,
+      "over_budget": true
+    },
+    {
+      "call_id": 24,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 16.115203466033563,
+      "over_budget": true
+    },
+    {
+      "call_id": 24,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.270872864988633,
+      "over_budget": true
+    },
+    {
+      "call_id": 24,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.653764823975507,
+      "over_budget": true
+    },
+    {
+      "call_id": 24,
+      "chunk_idx": 3,
+      "chunk_duration": 7.814,
+      "latency": 14.653326892002951,
+      "over_budget": false
+    },
+    {
+      "call_id": 25,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 17.046598188986536,
+      "over_budget": true
+    },
+    {
+      "call_id": 25,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.25930207700003,
+      "over_budget": true
+    },
+    {
+      "call_id": 25,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.439999046036974,
+      "over_budget": true
+    },
+    {
+      "call_id": 25,
+      "chunk_idx": 3,
+      "chunk_duration": 8.262,
+      "latency": 14.775976541975979,
+      "over_budget": false
+    },
+    {
+      "call_id": 29,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 21.807948853995185,
+      "over_budget": true
+    },
+    {
+      "call_id": 29,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.92188206303399,
+      "over_budget": true
+    },
+    {
+      "call_id": 29,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.13330006203614,
+      "over_budget": true
+    },
+    {
+      "call_id": 29,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 0.01951982796890661,
+      "over_budget": false
+    },
+    {
+      "call_id": 29,
+      "chunk_idx": 4,
+      "chunk_duration": 8.0,
+      "latency": 14.290439634991344,
+      "over_budget": false
+    },
+    {
+      "call_id": 31,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 25.114585527975578,
+      "over_budget": true
+    },
+    {
+      "call_id": 31,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.47807972197188,
+      "over_budget": true
+    },
+    {
+      "call_id": 31,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.07817279995652,
+      "over_budget": true
+    },
+    {
+      "call_id": 31,
+      "chunk_idx": 3,
+      "chunk_duration": 1.2,
+      "latency": 14.07698596996488,
+      "over_budget": false
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 9.378155488986522,
+      "over_budget": false
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 25.14962568494957,
+      "over_budget": true
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 19.62734313099645,
+      "over_budget": true
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 15.265081215009559,
+      "over_budget": true
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 4,
+      "chunk_duration": 4.78,
+      "latency": 13.5029591259663,
+      "over_budget": false
+    },
+    {
+      "call_id": 28,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 25.632144878967665,
+      "over_budget": true
+    },
+    {
+      "call_id": 28,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.560509632981848,
+      "over_budget": true
+    },
+    {
+      "call_id": 28,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.91050765296677,
+      "over_budget": true
+    },
+    {
+      "call_id": 28,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.214903705986217,
+      "over_budget": false
+    },
+    {
+      "call_id": 28,
+      "chunk_idx": 4,
+      "chunk_duration": 8.859,
+      "latency": 12.335733838030137,
+      "over_budget": false
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.200425899995025,
+      "over_budget": false
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 26.190015572996344,
+      "over_budget": true
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 20.176465462020133,
+      "over_budget": true
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 15.587589404953178,
+      "over_budget": true
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 14.227474870043807,
+      "over_budget": false
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.121170322003309,
+      "over_budget": false
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 6,
+      "chunk_duration": 8.866,
+      "latency": 10.9793343039928,
+      "over_budget": false
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 4.742524782021064,
+      "over_budget": false
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 26.488045222999062,
+      "over_budget": true
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 20.367056480958126,
+      "over_budget": true
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 15.490686181001365,
+      "over_budget": true
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 14.038518329965882,
+      "over_budget": false
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.432893981982488,
+      "over_budget": false
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 11.28412613098044,
+      "over_budget": false
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 7,
+      "chunk_duration": 7.561,
+      "latency": 9.982988420000765,
+      "over_budget": false
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 14.606860957981553,
+      "over_budget": false
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.68997477198718,
+      "over_budget": true
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.62016659899382,
+      "over_budget": true
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 15.109522555954754,
+      "over_budget": true
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 13.043841851002071,
+      "over_budget": false
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.325096911983564,
+      "over_budget": false
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.778110896993894,
+      "over_budget": false
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 7,
+      "chunk_duration": 1.08,
+      "latency": 8.997945234004874,
+      "over_budget": false
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 20.72254187701037,
+      "over_budget": true
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 22.935357065987773,
+      "over_budget": true
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.13450094201835,
+      "over_budget": true
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.329272877017502,
+      "over_budget": false
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.653070469968952,
+      "over_budget": false
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.738071516971104,
+      "over_budget": false
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.599974695011042,
+      "over_budget": false
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 7,
+      "chunk_duration": 6.652,
+      "latency": 9.51460955501534,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 22.692999191000126,
+      "over_budget": true
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.852998485963326,
+      "over_budget": true
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.992560810991563,
+      "over_budget": true
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.826089018024504,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.460777194006369,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.967623247008305,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.108994451991748,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.53775586001575,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 8,
+      "chunk_duration": 14.26,
+      "latency": 9.494600274018012,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 26.121654408983886,
+      "over_budget": true
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.812567624030635,
+      "over_budget": true
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.371440874005202,
+      "over_budget": true
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.475164050003514,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.518601797986776,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.147070141974837,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.147009406995494,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.977312410017475,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.060895752045326,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 9,
+      "chunk_duration": 2.908,
+      "latency": 0.021616349986288697,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 23.89538502000505,
+      "over_budget": true
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.368454802024644,
+      "over_budget": true
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.983831774967257,
+      "over_budget": true
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.90918114501983,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.557178493007086,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.55740460200468,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.400266423996072,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.958616198040545,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.098578347009607,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 9,
+      "chunk_duration": 13.32,
+      "latency": 8.049602610990405,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 13.540951596980449,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.72834914800478,
+      "over_budget": true
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 18.227898808952887,
+      "over_budget": true
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 15.075933437037747,
+      "over_budget": true
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.998984328994993,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.341310413030442,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.728848868049681,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.442123286018614,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 10.092162709042896,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.334468389977701,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 10,
+      "chunk_duration": 2.95725,
+      "latency": 7.7390544740483165,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 15.59506089403294,
+      "over_budget": true
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.29730442794971,
+      "over_budget": true
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.65000186301768,
+      "over_budget": true
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.840756302990485,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 13.139204761013389,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.23618303402327,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.784464741998818,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.154779723030515,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.836461331986357,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.520270144974347,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 10,
+      "chunk_duration": 10.539,
+      "latency": 7.555266526003834,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 16.575359698967077,
+      "over_budget": true
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.401879245997407,
+      "over_budget": true
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.694902435992844,
+      "over_budget": true
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.55562707100762,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.843405412044376,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.766937703010626,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.774267706030514,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.306465536996257,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.824048251961358,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.5810223420267,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 10,
+      "chunk_duration": 6.7,
+      "latency": 7.504922047024593,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 23.591354892996605,
+      "over_budget": true
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.304888514976483,
+      "over_budget": true
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.90995577297872,
+      "over_budget": true
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.960671390988864,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.398972734052222,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.912429369986057,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.23524308699416,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.76928470900748,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.199854991049506,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.091548299009446,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 10,
+      "chunk_duration": 10.36,
+      "latency": 8.211681865039282,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 27.335441587027162,
+      "over_budget": true
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.730078661988955,
+      "over_budget": true
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.116843266005162,
+      "over_budget": true
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.278671809996013,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.869315774005372,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.195166466990486,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.180942267004866,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 10.059552417020313,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 8.557333264034241,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.027490194013808,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 10,
+      "chunk_duration": 7.688,
+      "latency": 7.416124946961645,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 20.289164355024695,
+      "over_budget": true
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 22.641342415998224,
+      "over_budget": true
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.412299085990526,
+      "over_budget": true
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.594464941998012,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.308420307992492,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.988092306011822,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.552900417009369,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.682779543974902,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.55657458101632,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.638498084968887,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 8.046706727007404,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 6.106666390958708,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 12,
+      "chunk_duration": 7.715,
+      "latency": 5.262067755043972,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 27.8544609840028,
+      "over_budget": true
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.586823066987563,
+      "over_budget": true
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.035881623975,
+      "over_budget": true
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.473273873038124,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.808014431968331,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 10.905670136970002,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 0.0609872950008139,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 10.166216151963454,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 10.142122810997535,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.761672454013024,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 7.945195143984165,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 7.308742270979565,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.7494662050157785,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 13,
+      "chunk_duration": 3.762,
+      "latency": 4.878054924018215,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 19.739311813027598,
+      "over_budget": true
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 22.672739934991114,
+      "over_budget": true
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.36787852999987,
+      "over_budget": true
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.773233784013428,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.133219913986977,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.912509970017709,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.816553851007484,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.44962311902782,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.856782435032073,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.333856118028052,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 8.1195822529844,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 5.924062973994296,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.8324990720138885,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.368873914005235,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 14,
+      "chunk_duration": 13.9,
+      "latency": 4.510170293971896,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 24.760166250984184,
+      "over_budget": true
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.25507400598144,
+      "over_budget": true
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.046184918959625,
+      "over_budget": true
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.589454994013067,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.704887045023497,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.528083287004847,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.403183638001792,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.821114828984719,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.349264537973795,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.027356455044355,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 7.444799926946871,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 5.811968046007678,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.270921473973431,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.132658411981538,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 14,
+      "chunk_duration": 13.62,
+      "latency": 4.73921429598704,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 18.574167988961563,
+      "over_budget": true
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 22.96647868002765,
+      "over_budget": true
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.512563230993692,
+      "over_budget": true
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.776178718020674,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.069924422015902,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.96901474200422,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.819169570982922,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.358488758036401,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.709958762978204,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.434499480004888,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 8.035170964023564,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 5.889282302989159,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.625857356004417,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.861532488022931,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 14,
+      "chunk_duration": 15.0,
+      "latency": 4.232108168012928,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 15,
+      "chunk_duration": 2.30525,
+      "latency": 4.247415656980593,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 18.922569259011652,
+      "over_budget": true
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.084546271013096,
+      "over_budget": true
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.518025351979304,
+      "over_budget": true
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.656871295010205,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.019601273001172,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.080323513946496,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.639361749985255,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.559399701014627,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.806471748976037,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.454246873036027,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 8.156409010989591,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 5.866329499986023,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.652841900999192,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.740285956009757,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 14,
+      "chunk_duration": 15.0,
+      "latency": 4.190351079974789,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 15,
+      "chunk_duration": 8.64,
+      "latency": 4.216227960016113,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 12.92595328198513,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.94939455704298,
+      "over_budget": true
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 18.26625140302349,
+      "over_budget": true
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.84379131498281,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 13.348796922015026,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.041540505015291,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.777044928981923,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.696956955012865,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.876856266986579,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.267211697995663,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 7.936430222005583,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 6.900327172013931,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.822638966026716,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.903410340019036,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 14,
+      "chunk_duration": 15.0,
+      "latency": 4.027529150014743,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 15,
+      "chunk_duration": 15.0,
+      "latency": 4.48640501499176,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 16,
+      "chunk_duration": 12.44,
+      "latency": 3.0769380910205655,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 26.74233491596533,
+      "over_budget": true
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.76932654698612,
+      "over_budget": true
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 16.35243516502669,
+      "over_budget": true
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.402050319011323,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.43062572000781,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.283128488983493,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.185172730009072,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.94064485898707,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 8.916584516991861,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 7.920688621990848,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 7.570714216970373,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 5.752765250043012,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.108513995946851,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.280749808996916,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 14,
+      "chunk_duration": 15.0,
+      "latency": 4.888990356004797,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 15,
+      "chunk_duration": 15.0,
+      "latency": 3.1205836219596677,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 16,
+      "chunk_duration": 15.0,
+      "latency": 2.474573847022839,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 17,
+      "chunk_duration": 15.0,
+      "latency": 2.185949022998102,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 18,
+      "chunk_duration": 12.089,
+      "latency": 2.0875078999670222,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 22.348855945980176,
+      "over_budget": true
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 21.795118918991648,
+      "over_budget": true
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.088034438027535,
+      "over_budget": true
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.670614306000061,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.411989369953517,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 11.884617050003726,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.231123902020045,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.639212078996934,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.341132084955461,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.50303945800988,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 8.419835612003226,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 5.920700270973612,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.28125128604006,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 3.97946416400373,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 14,
+      "chunk_duration": 15.0,
+      "latency": 4.827800985018257,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 15,
+      "chunk_duration": 15.0,
+      "latency": 3.8811734109767713,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 16,
+      "chunk_duration": 15.0,
+      "latency": 2.069988783041481,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 17,
+      "chunk_duration": 15.0,
+      "latency": 2.39226732600946,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 18,
+      "chunk_duration": 15.0,
+      "latency": 1.9805436540045775,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 19,
+      "chunk_duration": 15.0,
+      "latency": 1.9173308970057406,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 20,
+      "chunk_duration": 15.0,
+      "latency": 1.4789976680185646,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 21,
+      "chunk_duration": 15.0,
+      "latency": 1.4289643400115892,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 22,
+      "chunk_duration": 5.16,
+      "latency": 1.19860476301983,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 17.536419058043975,
+      "over_budget": true
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 1,
+      "chunk_duration": 15.0,
+      "latency": 23.07366453896975,
+      "over_budget": true
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 2,
+      "chunk_duration": 15.0,
+      "latency": 17.778921030985657,
+      "over_budget": true
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 3,
+      "chunk_duration": 15.0,
+      "latency": 14.831303115992341,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 4,
+      "chunk_duration": 15.0,
+      "latency": 12.168403587013017,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 5,
+      "chunk_duration": 15.0,
+      "latency": 12.055271734017879,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 6,
+      "chunk_duration": 15.0,
+      "latency": 10.758142432023305,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 7,
+      "chunk_duration": 15.0,
+      "latency": 9.250433326000348,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 8,
+      "chunk_duration": 15.0,
+      "latency": 9.73942946700845,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 9,
+      "chunk_duration": 15.0,
+      "latency": 8.751396392006427,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 10,
+      "chunk_duration": 15.0,
+      "latency": 7.562710024008993,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 11,
+      "chunk_duration": 15.0,
+      "latency": 6.186587883043103,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 12,
+      "chunk_duration": 15.0,
+      "latency": 5.6752880600397475,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 13,
+      "chunk_duration": 15.0,
+      "latency": 4.9407959309755825,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 14,
+      "chunk_duration": 15.0,
+      "latency": 4.131353337026667,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 15,
+      "chunk_duration": 15.0,
+      "latency": 4.559415092051495,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 16,
+      "chunk_duration": 15.0,
+      "latency": 2.757680053997319,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 17,
+      "chunk_duration": 15.0,
+      "latency": 2.2787159209838137,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 18,
+      "chunk_duration": 15.0,
+      "latency": 2.0670227599912323,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 19,
+      "chunk_duration": 15.0,
+      "latency": 1.7836442349944264,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 20,
+      "chunk_duration": 15.0,
+      "latency": 1.4856398409465328,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 21,
+      "chunk_duration": 15.0,
+      "latency": 1.565830584964715,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 22,
+      "chunk_duration": 15.0,
+      "latency": 1.432304883026518,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 23,
+      "chunk_duration": 15.0,
+      "latency": 0.9303239549626596,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 24,
+      "chunk_duration": 2.184,
+      "latency": 0.15188275097170845,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

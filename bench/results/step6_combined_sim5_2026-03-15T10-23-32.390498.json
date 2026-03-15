@@ -1,0 +1,90 @@
+{
+  "config_name": "step6_combined_sim5",
+  "timestamp": "2026-03-15T10:23:32.390498",
+  "n_calls": 5,
+  "chunk_duration": 15.0,
+  "total_chunks": 8,
+  "chunks_over_budget": 0,
+  "avg_latency": 1.4962530492557562,
+  "p50_latency": 1.531141353014391,
+  "p95_latency": 2.232525692030322,
+  "max_latency": 2.232525692030322,
+  "throughput_chunks_per_sec": 2.8627337055217317,
+  "total_wall_clock": 2.7945316690020263,
+  "total_audio_processed": 90.148,
+  "effective_rtf": 0.03099937512759048,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 1.871862123021856,
+      "over_budget": false
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 2.232525692030322,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 0.508795841014944,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 1,
+      "chunk_duration": 7.93,
+      "latency": 1.97622853302164,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.05717124795774,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 1,
+      "chunk_duration": 1.662,
+      "latency": 1.531141353014391,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4280725150019862,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 1,
+      "chunk_duration": 7.552,
+      "latency": 1.3642270889831707,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

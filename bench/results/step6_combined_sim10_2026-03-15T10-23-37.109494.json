@@ -1,0 +1,132 @@
+{
+  "config_name": "step6_combined_sim10",
+  "timestamp": "2026-03-15T10:23:37.109494",
+  "n_calls": 10,
+  "chunk_duration": 15.0,
+  "total_chunks": 14,
+  "chunks_over_budget": 0,
+  "avg_latency": 2.610019038643389,
+  "p50_latency": 2.775160346995108,
+  "p95_latency": 3.9300522740231827,
+  "max_latency": 3.9300522740231827,
+  "throughput_chunks_per_sec": 2.967073750383942,
+  "total_wall_clock": 4.718453661014792,
+  "total_audio_processed": 162.81799999999998,
+  "effective_rtf": 0.02897992642714437,
+  "per_chunk": [
+    {
+      "call_id": 7,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.071671342011541,
+      "over_budget": false
+    },
+    {
+      "call_id": 8,
+      "chunk_idx": 0,
+      "chunk_duration": 12.99,
+      "latency": 2.3834408880211413,
+      "over_budget": false
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 3.1259076339774765,
+      "over_budget": false
+    },
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 3.516654138045851,
+      "over_budget": false
+    },
+    {
+      "call_id": 5,
+      "chunk_idx": 0,
+      "chunk_duration": 13.36,
+      "latency": 3.7125219930312596,
+      "over_budget": false
+    },
+    {
+      "call_id": 9,
+      "chunk_idx": 0,
+      "chunk_duration": 11.273,
+      "latency": 3.9300522740231827,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 0.6199500549701042,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 1,
+      "chunk_duration": 7.93,
+      "latency": 3.6164597279857844,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4170603600214235,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 1,
+      "chunk_duration": 1.662,
+      "latency": 2.922484712966252,
+      "over_budget": false
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.7339722099713981,
+      "over_budget": false
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 1,
+      "chunk_duration": 5.047,
+      "latency": 2.775160346995108,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.755320200987626,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 1,
+      "chunk_duration": 7.552,
+      "latency": 1.959610657999292,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

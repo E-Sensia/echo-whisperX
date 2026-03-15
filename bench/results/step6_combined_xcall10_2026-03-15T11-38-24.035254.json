@@ -1,0 +1,106 @@
+{
+  "config_name": "step6_combined_xcall10",
+  "timestamp": "2026-03-15T11:38:24.035254",
+  "n_calls": 10,
+  "chunk_duration": 15.0,
+  "total_chunks": 10,
+  "chunks_over_budget": 0,
+  "avg_latency": 0.14143493329756893,
+  "p50_latency": 0.14143493329756893,
+  "p95_latency": 1.4143493329756893,
+  "max_latency": 1.4143493329756893,
+  "throughput_chunks_per_sec": 7.070389024019065,
+  "total_wall_clock": 1.4143493329756893,
+  "total_audio_processed": 140.62699999999998,
+  "effective_rtf": 0.010057452217395589,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 5,
+      "chunk_idx": 0,
+      "chunk_duration": 13.36,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 7,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 8,
+      "chunk_idx": 0,
+      "chunk_duration": 12.99,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    },
+    {
+      "call_id": 9,
+      "chunk_idx": 0,
+      "chunk_duration": 11.273,
+      "latency": 1.4143493329756893,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "num_workers": 0,
+    "precompute_features": false,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

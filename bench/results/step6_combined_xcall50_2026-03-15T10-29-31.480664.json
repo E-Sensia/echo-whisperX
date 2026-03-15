@@ -1,0 +1,384 @@
+{
+  "config_name": "step6_combined_xcall50",
+  "timestamp": "2026-03-15T10:29:31.480664",
+  "n_calls": 50,
+  "chunk_duration": 15.0,
+  "total_chunks": 50,
+  "chunks_over_budget": 0,
+  "avg_latency": 0.1311767028796021,
+  "p50_latency": 0.1311767028796021,
+  "p95_latency": 6.5588351439801045,
+  "max_latency": 6.5588351439801045,
+  "throughput_chunks_per_sec": 7.623304886065249,
+  "total_wall_clock": 6.5588351439801045,
+  "total_audio_processed": 740.627,
+  "effective_rtf": 0.008855787250505457,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 5,
+      "chunk_idx": 0,
+      "chunk_duration": 13.36,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 7,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 8,
+      "chunk_idx": 0,
+      "chunk_duration": 12.99,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 9,
+      "chunk_idx": 0,
+      "chunk_duration": 11.273,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 10,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 11,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 12,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 13,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 14,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 15,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 16,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 17,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 18,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 20,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 21,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 22,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 23,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 24,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 25,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 26,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 27,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 28,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 29,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 30,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 31,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 32,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 33,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 34,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 35,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 36,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 37,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 38,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 39,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 40,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 41,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 42,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 43,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 44,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 45,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 46,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 47,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 48,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    },
+    {
+      "call_id": 49,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 6.5588351439801045,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "config_name": "step8_precompute_xcall20",
+  "timestamp": "2026-03-15T11:39:02.854917",
+  "n_calls": 20,
+  "chunk_duration": 15.0,
+  "total_chunks": 20,
+  "chunks_over_budget": 0,
+  "avg_latency": 0.14916057895170526,
+  "p50_latency": 0.14916057895170526,
+  "p95_latency": 2.983211579034105,
+  "max_latency": 2.983211579034105,
+  "throughput_chunks_per_sec": 6.704184222319068,
+  "total_wall_clock": 2.983211579034105,
+  "total_audio_processed": 290.62699999999995,
+  "effective_rtf": 0.010264743396291829,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 5,
+      "chunk_idx": 0,
+      "chunk_duration": 13.36,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 6,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 7,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 8,
+      "chunk_idx": 0,
+      "chunk_duration": 12.99,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 9,
+      "chunk_idx": 0,
+      "chunk_duration": 11.273,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 10,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 11,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 12,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 13,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 14,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 15,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 16,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 17,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 18,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    },
+    {
+      "call_id": 19,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 2.983211579034105,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step8_precompute",
+    "description": "Precompute mel spectrograms on CPU threads before GPU inference",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "num_workers": 0,
+    "precompute_features": true,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

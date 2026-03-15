@@ -1,0 +1,23 @@
+services:
+  triton:
+    build:
+      context: ../..
+      dockerfile: bench/triton/Dockerfile
+    container_name: echo-whisperx-triton
+    ports:
+      - "9200:8000"  # HTTP
+      - "9201:8001"  # gRPC
+      - "9202:8002"  # Metrics
+    volumes:
+      - ./models:/models
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=1
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["1"]
+              capabilities: [gpu]
+    shm_size: '4g'

@@ -1,0 +1,1719 @@
+{
+  "config_name": "step0_baseline",
+  "config_description": "Baseline: beam=5, float16, pyannote, batch=8, align=on",
+  "timestamp": "2026-03-15T10:14:50.615487",
+  "total_wall_clock": 49.1827922440134,
+  "total_audio_duration": 2759.2364999999995,
+  "rtf": 0.017824783139833576,
+  "rtf_asr_only": 0.0116698076189102,
+  "gpu_peak_mb": 749.88916015625,
+  "mean_wer": 0.003133649286259868,
+  "median_wer": 0.0,
+  "n_files": 30,
+  "per_file": [
+    {
+      "file_id": "fe10b095-27ec-4f7f-a094-a39d40d5c45f",
+      "audio_duration": 14.577,
+      "t_load": 0.03944055503234267,
+      "t_asr": 0.46094847103813663,
+      "t_align": 0.07436140801291913,
+      "gpu_peak_mb": 549.49462890625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 37
+      },
+      "n_segments": 9,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11630722124811631,
+          "median": -0.1163072212481163,
+          "p10": -0.1163072212481163,
+          "p90": -0.1163072212481163
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "334ad6e4-2b35-4cf7-a858-09b22ec380bd",
+      "audio_duration": 22.93,
+      "t_load": 0.041227779001928866,
+      "t_asr": 0.6422219059895724,
+      "t_align": 0.1169857420027256,
+      "gpu_peak_mb": 635.12158203125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 63
+      },
+      "n_segments": 8,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.05713847904082608,
+          "median": -0.05713847904082607,
+          "p10": -0.05713847904082607,
+          "p90": -0.05713847904082607
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "066e1458-15db-4051-bb54-b23a0f507f14",
+      "audio_duration": 16.662,
+      "t_load": 0.039966626034583896,
+      "t_asr": 0.5630985039751977,
+      "t_align": 0.09709465102059767,
+      "gpu_peak_mb": 571.39599609375,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 49
+      },
+      "n_segments": 10,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09068714818832548,
+          "median": -0.09068714818832549,
+          "p10": -0.09068714818832549,
+          "p90": -0.09068714818832549
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "666ea4ed-3304-4058-8e8b-a76456cac5c2",
+      "audio_duration": 13.427,
+      "t_load": 0.0400364359957166,
+      "t_asr": 0.43248039699392393,
+      "t_align": 0.0798162140417844,
+      "gpu_peak_mb": 533.673828125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 33
+      },
+      "n_segments": 6,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.1306992818097599,
+          "median": -0.13069928180975993,
+          "p10": -0.13069928180975993,
+          "p90": -0.13069928180975993
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "5b3197f3-0e48-44f4-96cd-141e93047b41",
+      "audio_duration": 22.552,
+      "t_load": 0.038500330003444105,
+      "t_asr": 0.6586103030131198,
+      "t_align": 0.11610745399957523,
+      "gpu_peak_mb": 637.85986328125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 58
+      },
+      "n_segments": 7,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09665178912026541,
+          "median": -0.09665178912026541,
+          "p10": -0.09665178912026541,
+          "p90": -0.09665178912026541
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "54cfc410-d415-4afa-9cd6-2632af8a8004",
+      "audio_duration": 13.36,
+      "t_load": 0.03897133999271318,
+      "t_asr": 0.2688254429958761,
+      "t_align": 0.06266424403293058,
+      "gpu_peak_mb": 543.48046875,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 18
+      },
+      "n_segments": 6,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11264935946639847,
+          "median": -0.11264935946639847,
+          "p10": -0.11264935946639847,
+          "p90": -0.11264935946639847
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "39c05b9a-7853-4c14-b30b-2c64c97266a6",
+      "audio_duration": 20.047,
+      "t_load": 0.03950459504267201,
+      "t_asr": 0.5528313880204223,
+      "t_align": 0.10053835599683225,
+      "gpu_peak_mb": 606.43408203125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 48
+      },
+      "n_segments": 8,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08544921663335779,
+          "median": -0.08544921663335779,
+          "p10": -0.08544921663335779,
+          "p90": -0.08544921663335779
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "2ff307aa-2bfe-4697-8b4c-19eb9bb14517",
+      "audio_duration": 15.768,
+      "t_load": 0.04032776999520138,
+      "t_asr": 0.4124918130110018,
+      "t_align": 0.07783975801430643,
+      "gpu_peak_mb": 563.45947265625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 32
+      },
+      "n_segments": 7,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.07982611175506348,
+          "median": -0.07982611175506346,
+          "p10": -0.07982611175506346,
+          "p90": -0.07982611175506346
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "dab62aab-1c07-4d07-a3c5-9696e78c10f8",
+      "audio_duration": 12.99,
+      "t_load": 0.041010793996974826,
+      "t_asr": 0.38234613998793066,
+      "t_align": 0.0650667260051705,
+      "gpu_peak_mb": 529.06689453125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 28
+      },
+      "n_segments": 6,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.07134045738922923,
+          "median": -0.07134045738922923,
+          "p10": -0.07134045738922923,
+          "p90": -0.07134045738922923
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "256ae766-8c3c-4986-8a24-887914533053",
+      "audio_duration": 11.273,
+      "t_load": 0.03835991898085922,
+      "t_asr": 0.2900650800438598,
+      "t_align": 0.06026770296739414,
+      "gpu_peak_mb": 511.35009765625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 19
+      },
+      "n_segments": 5,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11243665782180992,
+          "median": -0.11243665782180992,
+          "p10": -0.11243665782180992,
+          "p90": -0.11243665782180992
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "a52979ec-7925-44d3-8b7b-b83fc1f56376",
+      "audio_duration": 85.26,
+      "t_load": 0.049625687999650836,
+      "t_asr": 0.929367929988075,
+      "t_align": 0.3218108589644544,
+      "gpu_peak_mb": 712.72998046875,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 135
+      },
+      "n_segments": 27,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08467574951041391,
+          "median": -0.08374451832813129,
+          "p10": -0.08374451832813129,
+          "p90": -0.0754654272756678
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "7e8803a2-9387-463c-ad39-6c0b9bc27249",
+      "audio_duration": 119.2,
+      "t_load": 0.05878306302474812,
+      "t_asr": 1.3250494010280818,
+      "t_align": 0.5878846980049275,
+      "gpu_peak_mb": 750.71923828125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 287
+      },
+      "n_segments": 35,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.06643587915919229,
+          "median": -0.05370348436004333,
+          "p10": -0.09084169403479918,
+          "p90": -0.04151165840171632
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "0968df1e-9751-41b1-aad3-e62b45ebb864",
+      "audio_duration": 62.82,
+      "t_load": 0.049903214967343956,
+      "t_asr": 1.0471583240432665,
+      "t_align": 0.3043526569963433,
+      "gpu_peak_mb": 716.95556640625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 132
+      },
+      "n_segments": 35,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11999009150646027,
+          "median": -0.13837680070520306,
+          "p10": -0.13837680070520306,
+          "p90": -0.0888671875
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "08125304-24ff-45a2-b768-6e9376c22bce",
+      "audio_duration": 53.06,
+      "t_load": 0.045976549037732184,
+      "t_asr": 1.4092584410100244,
+      "t_align": 0.3516736449673772,
+      "gpu_peak_mb": 748.58447265625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 200
+      },
+      "n_segments": 25,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.0553932664783817,
+          "median": -0.05739329181066374,
+          "p10": -0.05739329181066374,
+          "p90": -0.04905985292615527
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "190e9c0c-c9d5-4eac-8358-959eb51b43b8",
+      "audio_duration": 40.26,
+      "t_load": 0.04566475801402703,
+      "t_asr": 0.9398721780162305,
+      "t_align": 0.2078473949804902,
+      "gpu_peak_mb": 693.24853515625,
+      "wer": 0.019801980198019802,
+      "wer_detail": {
+        "wer": 0.019801980198019802,
+        "substitutions": 1,
+        "deletions": 1,
+        "insertions": 0,
+        "ref_words": 101
+      },
+      "n_segments": 14,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.10114324791090833,
+          "median": -0.0817500033378601,
+          "p10": -0.14962635934352875,
+          "p90": -0.0817500033378601
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "4136c50a-5bfc-490c-a842-3696c4378ef9",
+      "audio_duration": 57.78,
+      "t_load": 0.04599577496992424,
+      "t_asr": 0.8812863629427738,
+      "t_align": 0.3000295319943689,
+      "gpu_peak_mb": 654.94580078125,
+      "wer": 0.0064516129032258064,
+      "wer_detail": {
+        "wer": 0.0064516129032258064,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 155
+      },
+      "n_segments": 19,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.06220725472894594,
+          "median": -0.06078868990852719,
+          "p10": -0.08395235802306504,
+          "p90": -0.051402698355642235
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "4349c21f-2fac-42b8-9d14-2d435f58598f",
+      "audio_duration": 56.228,
+      "t_load": 0.047120292962063104,
+      "t_asr": 0.8553078650147654,
+      "t_align": 0.26816921902354807,
+      "gpu_peak_mb": 736.76806640625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 114
+      },
+      "n_segments": 20,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09443812513852272,
+          "median": -0.07010869409727014,
+          "p10": -0.11876755617977527,
+          "p90": -0.07010869409727014
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "9137b52a-6fb7-4002-871b-16edef06a18b",
+      "audio_duration": 47.74,
+      "t_load": 0.04577661701478064,
+      "t_asr": 0.879043027991429,
+      "t_align": 0.24208799900952727,
+      "gpu_peak_mb": 679.4375,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 114
+      },
+      "n_segments": 18,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.06466593021021483,
+          "median": -0.05351245051961604,
+          "p10": -0.08697288959141238,
+          "p90": -0.05351245051961604
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "a93bad97-f0ed-4590-b4b0-a59588c681ed",
+      "audio_duration": 34.04,
+      "t_load": 0.04834988701622933,
+      "t_asr": 0.794030097022187,
+      "t_align": 0.1778955939807929,
+      "gpu_peak_mb": 720.74853515625,
+      "wer": 0.028169014084507043,
+      "wer_detail": {
+        "wer": 0.028169014084507043,
+        "substitutions": 0,
+        "deletions": 2,
+        "insertions": 0,
+        "ref_words": 71
+      },
+      "n_segments": 12,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09474339684064703,
+          "median": -0.07677801370877645,
+          "p10": -0.17379108262087764,
+          "p90": -0.07677801370877645
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "06f09172-97bb-4fcd-88da-815a7b0e0890",
+      "audio_duration": 64.78,
+      "t_load": 0.052057525026611984,
+      "t_asr": 0.9152359039871953,
+      "t_align": 0.3129649549955502,
+      "gpu_peak_mb": 738.27001953125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 149
+      },
+      "n_segments": 24,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09499433347042861,
+          "median": -0.11900252751027694,
+          "p10": -0.13143382236069323,
+          "p90": -0.05516721438943294
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "caabb7f1-2b86-429f-aa93-7c57a713d366",
+      "audio_duration": 197.4205,
+      "t_load": 0.06913736101705581,
+      "t_asr": 2.121019958984107,
+      "t_align": 1.1062703810166568,
+      "gpu_peak_mb": 750.53173828125,
+      "wer": 0.003590664272890485,
+      "wer_detail": {
+        "wer": 0.003590664272890485,
+        "substitutions": 2,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 557
+      },
+      "n_segments": 102,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.07708001266040478,
+          "median": -0.0877717366685038,
+          "p10": -0.11379587087893471,
+          "p90": -0.030658143064515156
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "3f5ea7cc-9640-4f41-a2b4-3184d13d6500",
+      "audio_duration": 202.5925,
+      "t_load": 0.09162875299807638,
+      "t_asr": 1.413097693992313,
+      "t_align": 0.8298690029769205,
+      "gpu_peak_mb": 748.99365234375,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 282
+      },
+      "n_segments": 67,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08856221949146433,
+          "median": -0.07649456884550011,
+          "p10": -0.13864715604842465,
+          "p90": -0.057999321340542774
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "f90f7157-a951-44c7-8031-5774feba5189",
+      "audio_duration": 313.18,
+      "t_load": 0.09371590701630339,
+      "t_asr": 3.0219174819649197,
+      "t_align": 1.6011576020391658,
+      "gpu_peak_mb": 745.27685546875,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 740
+      },
+      "n_segments": 94,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.06998480232084973,
+          "median": -0.0618229175110658,
+          "p10": -0.1246383093573429,
+          "p90": -0.0451171887293458
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "e90d1d24-5d6c-422a-bc5e-c644b36c3131",
+      "audio_duration": 190.187,
+      "t_load": 0.06945270899450406,
+      "t_asr": 1.5076299959910102,
+      "t_align": 0.8158003150019795,
+      "gpu_peak_mb": 747.0302734375,
+      "wer": 0.01038961038961039,
+      "wer_detail": {
+        "wer": 0.01038961038961039,
+        "substitutions": 3,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 385
+      },
+      "n_segments": 55,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08714170895294059,
+          "median": -0.08263530927835051,
+          "p10": -0.13581194316170045,
+          "p90": -0.05146708055079438
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "f667fddd-0ea3-4b42-aad3-93a8510edf21",
+      "audio_duration": 145.303,
+      "t_load": 0.06472843495430425,
+      "t_asr": 1.5232261139899492,
+      "t_align": 0.7010246260324493,
+      "gpu_peak_mb": 741.08642578125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 326
+      },
+      "n_segments": 50,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08037208533427062,
+          "median": -0.07099710297338742,
+          "p10": -0.12856950726488542,
+          "p90": -0.05664062511120269
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "c6ed7c9f-ee8f-464e-a23c-11af60c82acb",
+      "audio_duration": 132.06,
+      "t_load": 0.05954361200565472,
+      "t_asr": 1.3683326549944468,
+      "t_align": 0.6986605749698356,
+      "gpu_peak_mb": 741.37890625,
+      "wer": 0.01524390243902439,
+      "wer_detail": {
+        "wer": 0.01524390243902439,
+        "substitutions": 2,
+        "deletions": 3,
+        "insertions": 0,
+        "ref_words": 328
+      },
+      "n_segments": 37,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11429044088485157,
+          "median": -0.1041870100889355,
+          "p10": -0.12662760354578495,
+          "p90": -0.09489329595391344
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "8c33dc36-e501-469e-8125-2d3955e41511",
+      "audio_duration": 170.1575,
+      "t_load": 0.06998948100954294,
+      "t_asr": 1.5900602579931729,
+      "t_align": 0.89150815497851,
+      "gpu_peak_mb": 732.54931640625,
+      "wer": 0.010362694300518135,
+      "wer_detail": {
+        "wer": 0.010362694300518135,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 4,
+        "ref_words": 386
+      },
+      "n_segments": 67,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08204592127633996,
+          "median": -0.07582131639505044,
+          "p10": -0.11229292132768286,
+          "p90": -0.051829266838911106
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "48f4b1f4-408c-47c3-9c2f-78c199b9d566",
+      "audio_duration": 248.08,
+      "t_load": 0.07972524495562539,
+      "t_asr": 1.7017734730034135,
+      "t_align": 0.9170413229730912,
+      "gpu_peak_mb": 749.41552734375,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 320
+      },
+      "n_segments": 56,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.12941022439391972,
+          "median": -0.12434210149865402,
+          "p10": -0.18776483555971565,
+          "p90": -0.06650472413591978
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "989cdccd-09b0-4e1f-8fd1-6edcff632d4c",
+      "audio_duration": 178.862,
+      "t_load": 0.0662345250020735,
+      "t_asr": 1.637652481033001,
+      "t_align": 0.8553044779691845,
+      "gpu_peak_mb": 745.87744140625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 413
+      },
+      "n_segments": 59,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08538859414328272,
+          "median": -0.07638171684643454,
+          "p10": -0.1348248112833861,
+          "p90": -0.06101919973597807
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "d2fa6ee7-20a6-46dc-aee4-33305a557329",
+      "audio_duration": 196.64,
+      "t_load": 0.07419987604953349,
+      "t_asr": 1.6755200420157053,
+      "t_align": 0.8639945320319384,
+      "gpu_peak_mb": 749.88916015625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 380
+      },
+      "n_segments": 63,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.0851885395209525,
+          "median": -0.10216733592171823,
+          "p10": -0.10717429902771829,
+          "p90": -0.05534699520507416
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    }
+  ],
+  "quality_summary": {
+    "avg_logprob": {
+      "mean": -0.08971125154688481,
+      "median": -0.08544921663335779,
+      "p10": -0.1166755082739507,
+      "p90": -0.06442006266208794
+    },
+    "no_speech_prob": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "compression_ratio": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "tokens_per_sec": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "repeat_adjacent_frac": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "repeat_unique_frac": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    }
+  },
+  "config": {
+    "name": "step0_baseline",
+    "description": "Baseline: beam=5, float16, pyannote, batch=8, align=on",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 8,
+    "skip_alignment": false,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

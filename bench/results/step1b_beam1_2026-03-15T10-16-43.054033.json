@@ -1,0 +1,1719 @@
+{
+  "config_name": "step1b_beam1",
+  "config_description": "beam_size=1 (greedy)",
+  "timestamp": "2026-03-15T10:16:43.054033",
+  "total_wall_clock": 43.77293633198133,
+  "total_audio_duration": 2759.2364999999995,
+  "rtf": 0.015864148046744575,
+  "rtf_asr_only": 0.009770602812664144,
+  "gpu_peak_mb": 749.01416015625,
+  "mean_wer": 0.047961155598985866,
+  "median_wer": 0.03546099290780142,
+  "n_files": 30,
+  "per_file": [
+    {
+      "file_id": "fe10b095-27ec-4f7f-a094-a39d40d5c45f",
+      "audio_duration": 14.577,
+      "t_load": 0.03822941501857713,
+      "t_asr": 0.3708766819909215,
+      "t_align": 0.0724820609902963,
+      "gpu_peak_mb": 548.36962890625,
+      "wer": 0.05405405405405406,
+      "wer_detail": {
+        "wer": 0.05405405405405406,
+        "substitutions": 1,
+        "deletions": 1,
+        "insertions": 0,
+        "ref_words": 37
+      },
+      "n_segments": 9,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.12580771722655368,
+          "median": -0.12580771722655365,
+          "p10": -0.12580771722655365,
+          "p90": -0.12580771722655365
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "334ad6e4-2b35-4cf7-a858-09b22ec380bd",
+      "audio_duration": 22.93,
+      "t_load": 0.04041929094819352,
+      "t_asr": 0.5255132709862664,
+      "t_align": 0.12346518103731796,
+      "gpu_peak_mb": 633.99658203125,
+      "wer": 0.015873015873015872,
+      "wer_detail": {
+        "wer": 0.015873015873015872,
+        "substitutions": 1,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 63
+      },
+      "n_segments": 9,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.058840886698764513,
+          "median": -0.05884088669876451,
+          "p10": -0.05884088669876451,
+          "p90": -0.05884088669876451
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "066e1458-15db-4051-bb54-b23a0f507f14",
+      "audio_duration": 16.662,
+      "t_load": 0.04026923101628199,
+      "t_asr": 0.44139920797897503,
+      "t_align": 0.08997981698485091,
+      "gpu_peak_mb": 570.52099609375,
+      "wer": 0.061224489795918366,
+      "wer_detail": {
+        "wer": 0.061224489795918366,
+        "substitutions": 2,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 49
+      },
+      "n_segments": 7,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.12672842670889461,
+          "median": -0.12672842670889461,
+          "p10": -0.12672842670889461,
+          "p90": -0.12672842670889461
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "666ea4ed-3304-4058-8e8b-a76456cac5c2",
+      "audio_duration": 13.427,
+      "t_load": 0.040819838002789766,
+      "t_asr": 0.3696889360435307,
+      "t_align": 0.07760055200196803,
+      "gpu_peak_mb": 532.548828125,
+      "wer": 0.15151515151515152,
+      "wer_detail": {
+        "wer": 0.15151515151515152,
+        "substitutions": 0,
+        "deletions": 1,
+        "insertions": 4,
+        "ref_words": 33
+      },
+      "n_segments": 7,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.13798755757948933,
+          "median": -0.13798755757948933,
+          "p10": -0.13798755757948933,
+          "p90": -0.13798755757948933
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "5b3197f3-0e48-44f4-96cd-141e93047b41",
+      "audio_duration": 22.552,
+      "t_load": 0.04060639103408903,
+      "t_asr": 0.5041367280064151,
+      "t_align": 0.12304131098790094,
+      "gpu_peak_mb": 636.73486328125,
+      "wer": 0.1206896551724138,
+      "wer_detail": {
+        "wer": 0.1206896551724138,
+        "substitutions": 3,
+        "deletions": 4,
+        "insertions": 0,
+        "ref_words": 58
+      },
+      "n_segments": 9,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11253736472251462,
+          "median": -0.11253736472251463,
+          "p10": -0.11253736472251463,
+          "p90": -0.11253736472251463
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "54cfc410-d415-4afa-9cd6-2632af8a8004",
+      "audio_duration": 13.36,
+      "t_load": 0.039107454009354115,
+      "t_asr": 0.2240408979705535,
+      "t_align": 0.060222417989280075,
+      "gpu_peak_mb": 542.60546875,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 18
+      },
+      "n_segments": 6,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.11272915124016648,
+          "median": -0.1127291512401665,
+          "p10": -0.1127291512401665,
+          "p90": -0.1127291512401665
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "39c05b9a-7853-4c14-b30b-2c64c97266a6",
+      "audio_duration": 20.047,
+      "t_load": 0.04098446504212916,
+      "t_asr": 0.44665186799829826,
+      "t_align": 0.10097765596583486,
+      "gpu_peak_mb": 605.30908203125,
+      "wer": 0.10416666666666667,
+      "wer_detail": {
+        "wer": 0.10416666666666667,
+        "substitutions": 3,
+        "deletions": 0,
+        "insertions": 2,
+        "ref_words": 48
+      },
+      "n_segments": 8,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09588534358975499,
+          "median": -0.09588534358975499,
+          "p10": -0.09588534358975499,
+          "p90": -0.09588534358975499
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "2ff307aa-2bfe-4697-8b4c-19eb9bb14517",
+      "audio_duration": 15.768,
+      "t_load": 0.040298936946783215,
+      "t_asr": 0.3427823759848252,
+      "t_align": 0.07568790204823017,
+      "gpu_peak_mb": 562.58447265625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 32
+      },
+      "n_segments": 7,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.0796022630266605,
+          "median": -0.07960226302666049,
+          "p10": -0.07960226302666049,
+          "p90": -0.07960226302666049
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "dab62aab-1c07-4d07-a3c5-9696e78c10f8",
+      "audio_duration": 12.99,
+      "t_load": 0.03924661304336041,
+      "t_asr": 0.3197574079968035,
+      "t_align": 0.0652551680104807,
+      "gpu_peak_mb": 527.94189453125,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 28
+      },
+      "n_segments": 6,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.07133908857379044,
+          "median": -0.07133908857379043,
+          "p10": -0.07133908857379043,
+          "p90": -0.07133908857379043
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "256ae766-8c3c-4986-8a24-887914533053",
+      "audio_duration": 11.273,
+      "t_load": 0.03939914796501398,
+      "t_asr": 0.23370396596146747,
+      "t_align": 0.05771309701958671,
+      "gpu_peak_mb": 510.47509765625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 19
+      },
+      "n_segments": 5,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.1125101141027502,
+          "median": -0.1125101141027502,
+          "p10": -0.1125101141027502,
+          "p90": -0.1125101141027502
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "a52979ec-7925-44d3-8b7b-b83fc1f56376",
+      "audio_duration": 85.26,
+      "t_load": 0.04703945299843326,
+      "t_asr": 0.8136280630133115,
+      "t_align": 0.32892956101568416,
+      "gpu_peak_mb": 711.60498046875,
+      "wer": 0.044444444444444446,
+      "wer_detail": {
+        "wer": 0.044444444444444446,
+        "substitutions": 3,
+        "deletions": 3,
+        "insertions": 0,
+        "ref_words": 135
+      },
+      "n_segments": 26,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08579823687252798,
+          "median": -0.08437512249552778,
+          "p10": -0.08437512249552778,
+          "p90": -0.08117172826122451
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "7e8803a2-9387-463c-ad39-6c0b9bc27249",
+      "audio_duration": 119.2,
+      "t_load": 0.04813550697872415,
+      "t_asr": 1.1415585189824924,
+      "t_align": 0.605989426956512,
+      "gpu_peak_mb": 749.84423828125,
+      "wer": 0.04878048780487805,
+      "wer_detail": {
+        "wer": 0.04878048780487805,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 14,
+        "ref_words": 287
+      },
+      "n_segments": 41,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.0745404054420317,
+          "median": -0.05381134743908889,
+          "p10": -0.09963753787071808,
+          "p90": -0.0415742653939459
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "0968df1e-9751-41b1-aad3-e62b45ebb864",
+      "audio_duration": 62.82,
+      "t_load": 0.0441598100005649,
+      "t_asr": 0.9051187980221584,
+      "t_align": 0.2953522239695303,
+      "gpu_peak_mb": 715.83056640625,
+      "wer": 0.12121212121212122,
+      "wer_detail": {
+        "wer": 0.12121212121212122,
+        "substitutions": 11,
+        "deletions": 5,
+        "insertions": 0,
+        "ref_words": 132
+      },
+      "n_segments": 29,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.1280582673430281,
+          "median": -0.11611606180667877,
+          "p10": -0.1563481169638874,
+          "p90": -0.08882392154020421
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "08125304-24ff-45a2-b768-6e9376c22bce",
+      "audio_duration": 53.06,
+      "t_load": 0.04872556898044422,
+      "t_asr": 1.145805592997931,
+      "t_align": 0.3445887169800699,
+      "gpu_peak_mb": 747.70947265625,
+      "wer": 0.0,
+      "wer_detail": {
+        "wer": 0.0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 200
+      },
+      "n_segments": 25,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.05555992583689633,
+          "median": -0.05755806579822447,
+          "p10": -0.05755806579822447,
+          "p90": -0.04923248262602394
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "190e9c0c-c9d5-4eac-8358-959eb51b43b8",
+      "audio_duration": 40.26,
+      "t_load": 0.042647106980439276,
+      "t_asr": 0.7393759889528155,
+      "t_align": 0.19517079403158277,
+      "gpu_peak_mb": 692.12353515625,
+      "wer": 0.10891089108910891,
+      "wer_detail": {
+        "wer": 0.10891089108910891,
+        "substitutions": 8,
+        "deletions": 1,
+        "insertions": 2,
+        "ref_words": 101
+      },
+      "n_segments": 13,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.12695133875523465,
+          "median": -0.11668682731981353,
+          "p10": -0.1500464894849321,
+          "p90": -0.11668682731981353
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "4136c50a-5bfc-490c-a842-3696c4378ef9",
+      "audio_duration": 57.78,
+      "t_load": 0.044444551051128656,
+      "t_asr": 0.7596324709593318,
+      "t_align": 0.30168068199418485,
+      "gpu_peak_mb": 653.82080078125,
+      "wer": 0.0064516129032258064,
+      "wer_detail": {
+        "wer": 0.0064516129032258064,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 155
+      },
+      "n_segments": 20,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.06586830653621399,
+          "median": -0.06100707139287676,
+          "p10": -0.09375638160549227,
+          "p90": -0.05150395022197203
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "4349c21f-2fac-42b8-9d14-2d435f58598f",
+      "audio_duration": 56.228,
+      "t_load": 0.0461726050125435,
+      "t_asr": 0.7379746939986944,
+      "t_align": 0.282200918009039,
+      "gpu_peak_mb": 735.89306640625,
+      "wer": 0.008771929824561403,
+      "wer_detail": {
+        "wer": 0.008771929824561403,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 114
+      },
+      "n_segments": 22,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.10014700903728052,
+          "median": -0.12487259573406644,
+          "p10": -0.12487259573406644,
+          "p90": -0.07047630500113755
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "9137b52a-6fb7-4002-871b-16edef06a18b",
+      "audio_duration": 47.74,
+      "t_load": 0.04388003802159801,
+      "t_asr": 0.7574853249825537,
+      "t_align": 0.2491340950364247,
+      "gpu_peak_mb": 678.3125,
+      "wer": 0.03508771929824561,
+      "wer_detail": {
+        "wer": 0.03508771929824561,
+        "substitutions": 1,
+        "deletions": 0,
+        "insertions": 3,
+        "ref_words": 114
+      },
+      "n_segments": 18,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09293827292732476,
+          "median": -0.05364610987707851,
+          "p10": -0.1715225990278175,
+          "p90": -0.05364610987707851
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "a93bad97-f0ed-4590-b4b0-a59588c681ed",
+      "audio_duration": 34.04,
+      "t_load": 0.04263738897861913,
+      "t_asr": 0.6593660129583441,
+      "t_align": 0.18433985696174204,
+      "gpu_peak_mb": 719.62353515625,
+      "wer": 0.014084507042253521,
+      "wer_detail": {
+        "wer": 0.014084507042253521,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 71
+      },
+      "n_segments": 14,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09729360473970772,
+          "median": -0.07706219619461174,
+          "p10": -0.14787212610244752,
+          "p90": -0.07706219619461174
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "06f09172-97bb-4fcd-88da-815a7b0e0890",
+      "audio_duration": 64.78,
+      "t_load": 0.04493789200205356,
+      "t_asr": 0.8494658260024153,
+      "t_align": 0.314898271986749,
+      "gpu_peak_mb": 737.39501953125,
+      "wer": 0.12080536912751678,
+      "wer_detail": {
+        "wer": 0.12080536912751678,
+        "substitutions": 8,
+        "deletions": 3,
+        "insertions": 7,
+        "ref_words": 149
+      },
+      "n_segments": 29,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09376587966545269,
+          "median": -0.10813805775913765,
+          "p10": -0.13231354236602783,
+          "p90": -0.059258913418108766
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "caabb7f1-2b86-429f-aa93-7c57a713d366",
+      "audio_duration": 197.4205,
+      "t_load": 0.05697388801490888,
+      "t_asr": 1.6550085530034266,
+      "t_align": 1.1367138199857436,
+      "gpu_peak_mb": 749.65673828125,
+      "wer": 0.025134649910233394,
+      "wer_detail": {
+        "wer": 0.025134649910233394,
+        "substitutions": 5,
+        "deletions": 4,
+        "insertions": 5,
+        "ref_words": 557
+      },
+      "n_segments": 103,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08352618569099149,
+          "median": -0.10064696983472836,
+          "p10": -0.10519550204277038,
+          "p90": -0.03088424467679226
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "3f5ea7cc-9640-4f41-a2b4-3184d13d6500",
+      "audio_duration": 202.5925,
+      "t_load": 0.07235938200028613,
+      "t_asr": 1.237936694000382,
+      "t_align": 0.8560356330126524,
+      "gpu_peak_mb": 748.11865234375,
+      "wer": 0.03546099290780142,
+      "wer_detail": {
+        "wer": 0.03546099290780142,
+        "substitutions": 0,
+        "deletions": 1,
+        "insertions": 9,
+        "ref_words": 282
+      },
+      "n_segments": 70,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09857110043617988,
+          "median": -0.0768632454716641,
+          "p10": -0.17042095758594,
+          "p90": -0.05822305122147436
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "f90f7157-a951-44c7-8031-5774feba5189",
+      "audio_duration": 313.18,
+      "t_load": 0.08788013900630176,
+      "t_asr": 2.5587366559775546,
+      "t_align": 1.6049812759738415,
+      "gpu_peak_mb": 744.40185546875,
+      "wer": 0.021621621621621623,
+      "wer_detail": {
+        "wer": 0.021621621621621623,
+        "substitutions": 7,
+        "deletions": 3,
+        "insertions": 6,
+        "ref_words": 740
+      },
+      "n_segments": 93,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.0780148716359206,
+          "median": -0.07859153960778462,
+          "p10": -0.14318166926222028,
+          "p90": -0.04554541213437915
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "e90d1d24-5d6c-422a-bc5e-c644b36c3131",
+      "audio_duration": 190.187,
+      "t_load": 0.07163645402761176,
+      "t_asr": 1.2962331990129314,
+      "t_align": 0.8347655689576641,
+      "gpu_peak_mb": 746.1552734375,
+      "wer": 0.025974025974025976,
+      "wer_detail": {
+        "wer": 0.025974025974025976,
+        "substitutions": 3,
+        "deletions": 5,
+        "insertions": 2,
+        "ref_words": 385
+      },
+      "n_segments": 55,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09921677435229852,
+          "median": -0.109485625618636,
+          "p10": -0.1503376796975866,
+          "p90": -0.051678747564326714
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "f667fddd-0ea3-4b42-aad3-93a8510edf21",
+      "audio_duration": 145.303,
+      "t_load": 0.06110928195994347,
+      "t_asr": 1.2872545570135117,
+      "t_align": 0.6881998979952186,
+      "gpu_peak_mb": 740.21142578125,
+      "wer": 0.006134969325153374,
+      "wer_detail": {
+        "wer": 0.006134969325153374,
+        "substitutions": 1,
+        "deletions": 1,
+        "insertions": 0,
+        "ref_words": 326
+      },
+      "n_segments": 49,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08727264885645782,
+          "median": -0.07565690913926,
+          "p10": -0.1354054201216925,
+          "p90": -0.06762078302999543
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "c6ed7c9f-ee8f-464e-a23c-11af60c82acb",
+      "audio_duration": 132.06,
+      "t_load": 0.060432469996158034,
+      "t_asr": 1.1082585009862669,
+      "t_align": 0.701801725954283,
+      "gpu_peak_mb": 740.50390625,
+      "wer": 0.14939024390243902,
+      "wer_detail": {
+        "wer": 0.14939024390243902,
+        "substitutions": 24,
+        "deletions": 16,
+        "insertions": 9,
+        "ref_words": 328
+      },
+      "n_segments": 36,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.13946460407958428,
+          "median": -0.1317803081378196,
+          "p10": -0.20863436641900435,
+          "p90": -0.11394303383641556
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "8c33dc36-e501-469e-8125-2d3955e41511",
+      "audio_duration": 170.1575,
+      "t_load": 0.062104419979732484,
+      "t_asr": 1.3353868579724804,
+      "t_align": 0.8775483589852229,
+      "gpu_peak_mb": 731.42431640625,
+      "wer": 0.03626943005181347,
+      "wer_detail": {
+        "wer": 0.03626943005181347,
+        "substitutions": 7,
+        "deletions": 3,
+        "insertions": 4,
+        "ref_words": 386
+      },
+      "n_segments": 64,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08914686895362035,
+          "median": -0.08742259763464143,
+          "p10": -0.1273803187486453,
+          "p90": -0.061989198926658856
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "48f4b1f4-408c-47c3-9c2f-78c199b9d566",
+      "audio_duration": 248.08,
+      "t_load": 0.08136037597432733,
+      "t_asr": 1.47147936897818,
+      "t_align": 0.8997126630274579,
+      "gpu_peak_mb": 748.54052734375,
+      "wer": 0.046875,
+      "wer_detail": {
+        "wer": 0.046875,
+        "substitutions": 5,
+        "deletions": 10,
+        "insertions": 0,
+        "ref_words": 320
+      },
+      "n_segments": 51,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.14201755215188766,
+          "median": -0.12533636676504256,
+          "p10": -0.21505195870995522,
+          "p90": -0.0680390135580752
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "989cdccd-09b0-4e1f-8fd1-6edcff632d4c",
+      "audio_duration": 178.862,
+      "t_load": 0.07011291099479422,
+      "t_asr": 1.2828334079822525,
+      "t_align": 0.8613741039880551,
+      "gpu_peak_mb": 745.00244140625,
+      "wer": 0.06537530266343826,
+      "wer_detail": {
+        "wer": 0.06537530266343826,
+        "substitutions": 4,
+        "deletions": 17,
+        "insertions": 6,
+        "ref_words": 413
+      },
+      "n_segments": 56,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.09691288634450314,
+          "median": -0.08695474833496346,
+          "p10": -0.1511497236277959,
+          "p90": -0.061981584246342
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    },
+    {
+      "file_id": "d2fa6ee7-20a6-46dc-aee4-33305a557329",
+      "audio_duration": 196.64,
+      "t_load": 0.06783740600803867,
+      "t_asr": 1.4383134809904732,
+      "t_align": 0.8589968879823573,
+      "gpu_peak_mb": 749.01416015625,
+      "wer": 0.010526315789473684,
+      "wer_detail": {
+        "wer": 0.010526315789473684,
+        "substitutions": 2,
+        "deletions": 1,
+        "insertions": 1,
+        "ref_words": 380
+      },
+      "n_segments": 63,
+      "quality_metrics": {
+        "avg_logprob": {
+          "mean": -0.08564228827996767,
+          "median": -0.10376907639205456,
+          "p10": -0.10744515869399192,
+          "p90": -0.05547337059850817
+        },
+        "no_speech_prob": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "compression_ratio": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "tokens_per_sec": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_adjacent_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        },
+        "repeat_unique_frac": {
+          "mean": 0,
+          "median": 0,
+          "p10": 0,
+          "p90": 0
+        }
+      }
+    }
+  ],
+  "quality_summary": {
+    "avg_logprob": {
+      "mean": -0.09848916471354834,
+      "median": -0.09588534358975499,
+      "p10": -0.12905119636667423,
+      "p90": -0.07079201037003278
+    },
+    "no_speech_prob": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "compression_ratio": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "tokens_per_sec": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "repeat_adjacent_frac": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    },
+    "repeat_unique_frac": {
+      "mean": 0.0,
+      "median": 0,
+      "p10": 0.0,
+      "p90": 0.0
+    }
+  },
+  "config": {
+    "name": "step1b_beam1",
+    "description": "beam_size=1 (greedy)",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 1,
+    "vad_method": "pyannote",
+    "batch_size": 8,
+    "skip_alignment": false,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}

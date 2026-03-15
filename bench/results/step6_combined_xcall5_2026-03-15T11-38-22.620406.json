@@ -1,0 +1,71 @@
+{
+  "config_name": "step6_combined_xcall5",
+  "timestamp": "2026-03-15T11:38:22.620406",
+  "n_calls": 5,
+  "chunk_duration": 15.0,
+  "total_chunks": 5,
+  "chunks_over_budget": 0,
+  "avg_latency": 0.19420262640342117,
+  "p50_latency": 0.19420262640342117,
+  "p95_latency": 0.9710131320171058,
+  "max_latency": 0.9710131320171058,
+  "throughput_chunks_per_sec": 5.149260947288525,
+  "total_wall_clock": 0.9710131320171058,
+  "total_audio_processed": 73.00399999999999,
+  "effective_rtf": 0.0133008209415526,
+  "per_chunk": [
+    {
+      "call_id": 0,
+      "chunk_idx": 0,
+      "chunk_duration": 14.577,
+      "latency": 0.9710131320171058,
+      "over_budget": false
+    },
+    {
+      "call_id": 1,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 0.9710131320171058,
+      "over_budget": false
+    },
+    {
+      "call_id": 2,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 0.9710131320171058,
+      "over_budget": false
+    },
+    {
+      "call_id": 3,
+      "chunk_idx": 0,
+      "chunk_duration": 13.427,
+      "latency": 0.9710131320171058,
+      "over_budget": false
+    },
+    {
+      "call_id": 4,
+      "chunk_idx": 0,
+      "chunk_duration": 15.0,
+      "latency": 0.9710131320171058,
+      "over_budget": false
+    }
+  ],
+  "config": {
+    "name": "step6_combined",
+    "description": "Best combo: beam=5, float16, pyannote, batch=16, no align",
+    "whisper_arch": "large-v3",
+    "device": "cuda",
+    "compute_type": "float16",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_method": "pyannote",
+    "batch_size": 16,
+    "num_workers": 0,
+    "precompute_features": false,
+    "skip_alignment": true,
+    "n_files": 30,
+    "sample_seed": 42,
+    "concurrent_calls": 1,
+    "chunk_duration": 15.0
+  }
+}
