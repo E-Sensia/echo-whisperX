@@ -181,10 +181,11 @@ class FasterWhisperPipeline(Pipeline):
     def preprocess(self, audio):
         audio = audio['inputs']
         model_n_mels = self.model.feat_kwargs.get("feature_size")
+        padding = max(0, N_SAMPLES - audio.shape[0])
         features = log_mel_spectrogram(
             audio,
             n_mels=model_n_mels if model_n_mels is not None else 80,
-            padding=N_SAMPLES - audio.shape[0],
+            padding=padding,
         )
         return {'inputs': features}
 
@@ -341,6 +342,184 @@ class FasterWhisperPipeline(Pipeline):
             self.options = replace(self.options, suppress_tokens=previous_suppress_tokens)
 
         return {"segments": segments, "language": language}
+
+    def transcribe_multi(
+        self,
+        audios: List[np.ndarray],
+        batch_size: Optional[int] = None,
+        num_workers=0,
+        precompute_features: bool = False,
+        language: Optional[str] = None,
+        task: Optional[str] = None,
+        chunk_size=30,
+    ) -> List[TranscriptionResult]:
+        """Transcribe multiple audio arrays in a single batched pass.
+
+        Runs VAD on each audio, pools all VAD segments together, processes them
+        in combined batches through the encoder/decoder, then demultiplexes
+        results back to per-audio outputs.  This is significantly more efficient
+        than calling transcribe() N times when processing many short audio
+        chunks concurrently.
+        """
+        if issubclass(type(self.vad_model), Vad):
+            preprocess_fn = self.vad_model.preprocess_audio
+            merge_fn = self.vad_model.merge_chunks
+        else:
+            preprocess_fn = Pyannote.preprocess_audio
+            merge_fn = Pyannote.merge_chunks
+
+        # 1. Run VAD on each audio, collect segments with source mapping
+        all_vad_segments = []  # (audio_idx, vad_segment, audio_ref)
+        per_audio_vad = []     # per-audio list of vad_segments
+
+        for i, audio in enumerate(audios):
+            waveform = preprocess_fn(audio)
+            vad_segments = self.vad_model({"waveform": waveform, "sample_rate": SAMPLE_RATE})
+            vad_segments = merge_fn(
+                vad_segments,
+                chunk_size,
+                onset=self._vad_params["vad_onset"],
+                offset=self._vad_params["vad_offset"],
+            )
+            per_audio_vad.append(vad_segments)
+            for seg in vad_segments:
+                all_vad_segments.append((i, seg, audio))
+
+        if not all_vad_segments:
+            return [{"segments": [], "language": language or "fr"} for _ in audios]
+
+        # 2. Ensure tokenizer is set
+        if self.tokenizer is None:
+            language = language or self.detect_language(audios[0])
+            task = task or "transcribe"
+            self.tokenizer = Tokenizer(
+                self.model.hf_tokenizer,
+                self.model.model.is_multilingual,
+                task=task,
+                language=language,
+            )
+        else:
+            language = language or self.tokenizer.language_code
+            task = task or self.tokenizer.task
+            if task != self.tokenizer.task or language != self.tokenizer.language_code:
+                self.tokenizer = Tokenizer(
+                    self.model.hf_tokenizer,
+                    self.model.model.is_multilingual,
+                    task=task,
+                    language=language,
+                )
+
+        if self.suppress_numerals:
+            previous_suppress_tokens = self.options.suppress_tokens
+            numeral_symbol_tokens = find_numeral_symbol_tokens(self.tokenizer)
+            new_suppressed_tokens = list(set(numeral_symbol_tokens + self.options.suppress_tokens))
+            self.options = replace(self.options, suppress_tokens=new_suppressed_tokens)
+
+        # 3. Combined data generator across all audios
+        batch_size = batch_size or self._batch_size
+
+        if precompute_features:
+            # Pre-compute mel spectrograms on CPU threads, then batch to GPU
+            from concurrent.futures import ThreadPoolExecutor
+
+            model_n_mels = self.model.feat_kwargs.get("feature_size")
+            n_mels = model_n_mels if model_n_mels is not None else 80
+
+            def _compute_mel(item):
+                audio_idx, seg, audio = item
+                f1 = int(seg['start'] * SAMPLE_RATE)
+                f2 = int(seg['end'] * SAMPLE_RATE)
+                chunk = audio[f1:f2]
+                padding = max(0, N_SAMPLES - chunk.shape[0])
+                features = log_mel_spectrogram(
+                    chunk,
+                    n_mels=n_mels,
+                    padding=padding,
+                )
+                return features
+
+            n_threads = max(2, min(num_workers or 4, 8))
+            with ThreadPoolExecutor(max_workers=n_threads) as pool:
+                precomputed = list(pool.map(_compute_mel, all_vad_segments))
+
+            # Batch features and call generate_segment_batched directly
+            raw_outputs = []
+            for i in range(0, len(precomputed), batch_size):
+                batch_features = torch.stack(precomputed[i:i + batch_size])
+                batch_out = self.model.generate_segment_batched(
+                    batch_features, self.tokenizer, self.options
+                )
+                # Unbatch: convert dict-of-lists to list-of-dicts
+                n = batch_features.shape[0]
+                for j in range(n):
+                    raw_outputs.append({
+                        "text": batch_out["text"][j],
+                        "avg_logprob": batch_out["avg_logprob"][j],
+                        "no_speech_prob": batch_out["no_speech_prob"][j],
+                        "tokens": batch_out["tokens"][j],
+                        "compression_ratio": batch_out["compression_ratio"][j],
+                    })
+        else:
+            def data_multi():
+                for audio_idx, seg, audio in all_vad_segments:
+                    f1 = int(seg['start'] * SAMPLE_RATE)
+                    f2 = int(seg['end'] * SAMPLE_RATE)
+                    yield {'inputs': audio[f1:f2]}
+
+            # 4. Process all segments in combined batches
+            raw_outputs = []
+            for out in self.__call__(data_multi(), batch_size=batch_size, num_workers=num_workers):
+                raw_outputs.append(out)
+
+        # 5. Demux results back to per-audio
+        results: List[TranscriptionResult] = [{"segments": [], "language": language} for _ in audios]
+
+        for seg_idx, out in enumerate(raw_outputs):
+            audio_idx, vad_seg, _ = all_vad_segments[seg_idx]
+
+            text = out['text']
+            avg_logprob = out['avg_logprob']
+            tokens = out['tokens']
+            no_speech_prob = out['no_speech_prob']
+            compression_ratio = out['compression_ratio']
+
+            # Pipeline iterator path wraps single items in lists when batch_size <= 1
+            if not precompute_features and batch_size in [0, 1, None]:
+                text = text[0]
+                avg_logprob = avg_logprob[0]
+                tokens = tokens[0]
+                no_speech_prob = no_speech_prob[0]
+                compression_ratio = compression_ratio[0]
+
+            start_t = round(vad_seg['start'], 3)
+            end_t = round(vad_seg['end'], 3)
+            duration = end_t - start_t
+
+            text_tokens = [t for t in tokens if t < self.tokenizer.eot]
+            tokens_per_sec, repeat_adjacent_frac, repeat_unique_frac = _token_repetition_metrics(
+                text_tokens, duration
+            )
+
+            results[audio_idx]["segments"].append({
+                "text": text,
+                "start": start_t,
+                "end": end_t,
+                "avg_logprob": float(avg_logprob),
+                "no_speech_prob": float(no_speech_prob),
+                "compression_ratio": float(compression_ratio),
+                "tokens_len": int(len(text_tokens)),
+                "tokens_per_sec": float(tokens_per_sec),
+                "repeat_adjacent_frac": float(repeat_adjacent_frac),
+                "repeat_unique_frac": float(repeat_unique_frac),
+            })
+
+        # Revert state
+        if self.preset_language is None:
+            self.tokenizer = None
+        if self.suppress_numerals:
+            self.options = replace(self.options, suppress_tokens=previous_suppress_tokens)
+
+        return results
 
     def detect_language(self, audio: np.ndarray) -> str:
         if audio.shape[0] < N_SAMPLES:
