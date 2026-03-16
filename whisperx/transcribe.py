@@ -57,6 +57,9 @@ def transcribe_task(args: dict, parser: argparse.ArgumentParser):
 
     chunk_size: int = args.pop("chunk_size")
 
+    lm_model_path: str = args.pop("lm_model_path")
+    lm_weight: float = args.pop("lm_weight")
+
     diarize: bool = args.pop("diarize")
     min_speakers: int = args.pop("min_speakers")
     max_speakers: int = args.pop("max_speakers")
@@ -142,6 +145,8 @@ def transcribe_task(args: dict, parser: argparse.ArgumentParser):
         local_files_only=model_cache_only,
         threads=faster_whisper_threads,
         use_auth_token=hf_token,
+        lm_model_path=lm_model_path,
+        lm_weight=lm_weight,
     )
 
     for audio_path in args.pop("audio"):
