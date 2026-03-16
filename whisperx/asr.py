@@ -44,6 +44,65 @@ def find_numeral_symbol_tokens(tokenizer):
             numeral_symbol_tokens.append(i)
     return numeral_symbol_tokens
 
+
+def _needs_fallback(compression_ratio, avg_logprob, no_speech_prob, options):
+    """Check whether a decoded sample should be re-decoded at a higher temperature."""
+    needs = False
+
+    if (options.compression_ratio_threshold is not None
+            and compression_ratio > options.compression_ratio_threshold):
+        needs = True
+
+    if (options.log_prob_threshold is not None
+            and avg_logprob < options.log_prob_threshold):
+        needs = True
+
+    # Silence: high no-speech probability AND low avg logprob → not an error.
+    if (options.no_speech_threshold is not None
+            and no_speech_prob > options.no_speech_threshold
+            and options.log_prob_threshold is not None
+            and avg_logprob < options.log_prob_threshold):
+        needs = False
+
+    return needs
+
+
+def _select_best_hypothesis(gen_result, tokenizer, options, lm_fusion=None):
+    """Pick the best hypothesis from a CTranslate2 generation result.
+
+    Returns ``(tokens, avg_logprob)`` for the winning hypothesis.
+    """
+    n_hyp = len(gen_result.sequences_ids)
+
+    # Fast path: single hypothesis, no LM rescoring
+    if n_hyp == 1 and lm_fusion is None:
+        tokens = gen_result.sequences_ids[0]
+        seq_len = len(tokens)
+        cum_logprob = gen_result.scores[0] * (seq_len ** options.length_penalty)
+        return tokens, cum_logprob / (seq_len + 1)
+
+    # Compute acoustic score for every hypothesis
+    candidates_tokens = []
+    candidates_avg_lp = []
+    for h in range(n_hyp):
+        tokens = gen_result.sequences_ids[h]
+        seq_len = len(tokens)
+        cum_logprob = gen_result.scores[h] * (seq_len ** options.length_penalty)
+        candidates_tokens.append(tokens)
+        candidates_avg_lp.append(cum_logprob / (seq_len + 1))
+
+    if lm_fusion is not None:
+        # Decode texts for LM scoring
+        filtered = [[t for t in tk if t < tokenizer.eot] for tk in candidates_tokens]
+        texts = tokenizer.tokenizer.decode_batch(filtered)
+        best_idx = lm_fusion.rescore(texts, candidates_avg_lp)
+    else:
+        # Multiple hypotheses from sampling → pick highest avg logprob
+        best_idx = max(range(n_hyp), key=lambda j: candidates_avg_lp[j])
+
+    return candidates_tokens[best_idx], candidates_avg_lp[best_idx]
+
+
 class WhisperModel(faster_whisper.WhisperModel):
     '''
     FasterWhisperModel provides batched inference for faster-whisper.
@@ -74,7 +133,13 @@ class WhisperModel(faster_whisper.WhisperModel):
         )
 
         encoder_output = self.encode(features)
-        
+
+        lm_fusion = getattr(self, 'lm_fusion', None)
+        num_hypotheses = (
+            min(lm_fusion.num_hypotheses, options.beam_size)
+            if lm_fusion is not None else 1
+        )
+
         result = self.model.generate(
                 encoder_output,
                 [prompt] * batch_size,
@@ -88,30 +153,131 @@ class WhisperModel(faster_whisper.WhisperModel):
                 suppress_tokens=options.suppress_tokens,
                 no_repeat_ngram_size=options.no_repeat_ngram_size,
                 repetition_penalty=options.repetition_penalty,
+                num_hypotheses=num_hypotheses,
             )
 
-        tokens_batch = [r.sequences_ids[0] for r in result]
+        # Select best hypothesis per sample (with optional LM rescoring)
+        tokens_batch = []
         avg_logprobs = []
         for res in result:
-            seq_len = len(res.sequences_ids[0])
-            cum_logprob = res.scores[0] * (seq_len ** options.length_penalty)
-            avg_logprobs.append(cum_logprob / (seq_len + 1))
+            best_tokens, best_avg_lp = _select_best_hypothesis(
+                res, tokenizer, options, lm_fusion
+            )
+            tokens_batch.append(best_tokens)
+            avg_logprobs.append(best_avg_lp)
 
         def decode_batch(tokens: List[List[int]]) -> List[str]:
             res = []
             for tk in tokens:
                 res.append([token for token in tk if token < tokenizer.eot])
-            # text_tokens = [token for token in tokens if token < self.eot]
             return tokenizer.tokenizer.decode_batch(res)
 
         text = decode_batch(tokens_batch)
+        no_speech_probs = [r.no_speech_prob for r in result]
+        compression_ratios = [_compression_ratio(t) for t in text]
+
+        # --- Multi-temperature fallback for failed samples ---
+        has_fallback_temps = len(options.temperatures) > 1
+        has_thresholds = (
+            options.compression_ratio_threshold is not None
+            or options.log_prob_threshold is not None
+        )
+
+        if has_fallback_temps and has_thresholds:
+            for i in range(batch_size):
+                if not _needs_fallback(
+                    compression_ratios[i], avg_logprobs[i],
+                    no_speech_probs[i], options,
+                ):
+                    continue
+
+                logger.debug(
+                    "Sample %d/%d: fallback triggered "
+                    "(cr=%.2f, avg_lp=%.3f, nsp=%.3f)",
+                    i + 1, batch_size,
+                    compression_ratios[i], avg_logprobs[i], no_speech_probs[i],
+                )
+
+                single_encoder = self.encode(features[i:i+1])
+
+                # Track all attempts (including the initial beam-search one)
+                initial_attempt = (
+                    text[i], avg_logprobs[i], tokens_batch[i],
+                    compression_ratios[i],
+                )
+                all_attempts = [initial_attempt]
+                below_cr_attempts = []
+                if (options.compression_ratio_threshold is None
+                        or compression_ratios[i]
+                        <= options.compression_ratio_threshold):
+                    below_cr_attempts.append(initial_attempt)
+
+                settled = False
+                for temperature in options.temperatures[1:]:
+                    fb_result = self.model.generate(
+                        single_encoder,
+                        [prompt],
+                        return_scores=True,
+                        return_no_speech_prob=True,
+                        beam_size=1,
+                        num_hypotheses=options.best_of,
+                        sampling_topk=0,
+                        sampling_temperature=temperature,
+                        length_penalty=options.length_penalty,
+                        max_length=self.max_length,
+                        suppress_blank=options.suppress_blank,
+                        suppress_tokens=options.suppress_tokens,
+                        no_repeat_ngram_size=options.no_repeat_ngram_size,
+                        repetition_penalty=options.repetition_penalty,
+                    )[0]
+
+                    fb_tokens, fb_avg_lp = _select_best_hypothesis(
+                        fb_result, tokenizer, options, lm_fusion,
+                    )
+                    fb_text = decode_batch([fb_tokens])[0]
+                    fb_cr = _compression_ratio(fb_text)
+
+                    attempt = (fb_text, fb_avg_lp, fb_tokens, fb_cr)
+                    all_attempts.append(attempt)
+                    if (options.compression_ratio_threshold is None
+                            or fb_cr <= options.compression_ratio_threshold):
+                        below_cr_attempts.append(attempt)
+
+                    if not _needs_fallback(
+                        fb_cr, fb_avg_lp,
+                        fb_result.no_speech_prob, options,
+                    ):
+                        text[i] = fb_text
+                        avg_logprobs[i] = fb_avg_lp
+                        tokens_batch[i] = fb_tokens
+                        compression_ratios[i] = fb_cr
+                        settled = True
+                        logger.debug(
+                            "Sample %d: settled at temperature %.1f",
+                            i + 1, temperature,
+                        )
+                        break
+
+                if not settled:
+                    # All temperatures exhausted — pick the best result
+                    pool = below_cr_attempts or all_attempts
+                    best = max(pool, key=lambda x: x[1])
+                    text[i] = best[0]
+                    avg_logprobs[i] = best[1]
+                    tokens_batch[i] = best[2]
+                    compression_ratios[i] = best[3]
+                    logger.debug(
+                        "Sample %d: all temperatures exhausted, "
+                        "best avg_logprob=%.3f",
+                        i + 1, best[1],
+                    )
 
         return {
             "text": text,
             "avg_logprob": avg_logprobs,
-            "no_speech_prob": [r.no_speech_prob for r in result],
+            "no_speech_prob": no_speech_probs,
             "tokens": tokens_batch,
-            "compression_ratio": [_compression_ratio(t) for t in text],
+            "compression_ratio": compression_ratios,
         }
 
     def encode(self, features: np.ndarray) -> ctranslate2.StorageView:
@@ -552,6 +718,8 @@ def load_model(
     local_files_only=False,
     threads=4,
     use_auth_token: Optional[Union[str, bool]] = None,
+    lm_model_path: Optional[str] = None,
+    lm_weight: float = 0.1,
 ) -> FasterWhisperPipeline:
     """Load a Whisper model for inference.
     Args:
@@ -586,6 +754,15 @@ def load_model(
                          local_files_only=local_files_only,
                          cpu_threads=threads,
                          use_auth_token=use_auth_token)
+
+    if lm_model_path is not None:
+        from whisperx.lm_fusion import KenLMFusion
+        model.lm_fusion = KenLMFusion(
+            lm_model_path, lm_weight=lm_weight,
+        )
+    else:
+        model.lm_fusion = None
+
     if language is not None:
         tokenizer = Tokenizer(model.hf_tokenizer, model.model.is_multilingual, task=task, language=language)
     else:
