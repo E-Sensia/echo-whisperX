@@ -509,6 +509,102 @@ class FasterWhisperPipeline(Pipeline):
 
         return {"segments": segments, "language": language}
 
+    def transcribe_segment(
+        self,
+        audio: Union[str, np.ndarray],
+        initial_prompt: Optional[str] = None,
+        language: Optional[str] = None,
+        task: Optional[str] = None,
+    ) -> TranscriptionResult:
+        """Transcribe a single pre-segmented audio chunk without VAD.
+
+        Designed for cases where speech boundaries are already known
+        (e.g. callbot with external end-of-speech detection).  Skips
+        VAD and alignment — just mel-spectrogram → encoder → decoder.
+
+        Args:
+            audio: Audio array (16 kHz float32) or path. Already
+                segmented by the caller; no VAD will be applied.
+            initial_prompt: Optional prompt to condition the decoder
+                (overrides the model-level initial_prompt for this call).
+            language: Language code (default: model language).
+            task: "transcribe" or "translate".
+        """
+        if isinstance(audio, str):
+            audio = load_audio(audio)
+
+        # Ensure tokenizer
+        if self.tokenizer is None:
+            language = language or self.detect_language(audio)
+            task = task or "transcribe"
+            self.tokenizer = Tokenizer(
+                self.model.hf_tokenizer,
+                self.model.model.is_multilingual,
+                task=task,
+                language=language,
+            )
+        else:
+            language = language or self.tokenizer.language_code
+            task = task or self.tokenizer.task
+            if task != self.tokenizer.task or language != self.tokenizer.language_code:
+                self.tokenizer = Tokenizer(
+                    self.model.hf_tokenizer,
+                    self.model.model.is_multilingual,
+                    task=task,
+                    language=language,
+                )
+
+        # Build options — override initial_prompt if provided
+        options = self.options
+        if initial_prompt is not None:
+            options = replace(options, initial_prompt=initial_prompt)
+
+        # Mel spectrogram (same as preprocess())
+        model_n_mels = self.model.feat_kwargs.get("feature_size")
+        padding = max(0, N_SAMPLES - audio.shape[0])
+        features = log_mel_spectrogram(
+            audio,
+            n_mels=model_n_mels if model_n_mels is not None else 80,
+            padding=padding,
+        )
+        features = features.unsqueeze(0)  # batch dim
+
+        # Direct decode — no VAD
+        out = self.model.generate_segment_batched(
+            features, self.tokenizer, options,
+        )
+
+        text = out["text"][0]
+        tokens = out["tokens"][0]
+        avg_logprob = out["avg_logprob"][0]
+        no_speech_prob = out["no_speech_prob"][0]
+        compression_ratio = out["compression_ratio"][0]
+
+        duration = len(audio) / SAMPLE_RATE
+        text_tokens = [t for t in tokens if t < self.tokenizer.eot]
+        tokens_per_sec, repeat_adjacent_frac, repeat_unique_frac = (
+            _token_repetition_metrics(text_tokens, duration)
+        )
+
+        segment: SingleSegment = {
+            "text": text,
+            "start": 0.0,
+            "end": round(duration, 3),
+            "avg_logprob": float(avg_logprob),
+            "no_speech_prob": float(no_speech_prob),
+            "compression_ratio": float(compression_ratio),
+            "tokens_len": int(len(text_tokens)),
+            "tokens_per_sec": float(tokens_per_sec),
+            "repeat_adjacent_frac": float(repeat_adjacent_frac),
+            "repeat_unique_frac": float(repeat_unique_frac),
+        }
+
+        # Revert tokenizer if multilingual
+        if self.preset_language is None:
+            self.tokenizer = None
+
+        return {"segments": [segment], "language": language}
+
     def transcribe_multi(
         self,
         audios: List[np.ndarray],
