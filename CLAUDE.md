@@ -2,6 +2,8 @@
 
 Fork of WhisperX optimised for Echo's telephony ASR pipeline (French medical emergency calls, PCMU 8kHz).
 
+**Contributors / agents**: read [CONTRIBUTING.md](CONTRIBUTING.md) first for the branch model, commit conventions, versioning (`vX.Y.Z-echo.N`), upstream sync workflow, and rules about what not to commit. This file only covers the ASR quality benchmark.
+
 ## ASR Quality Benchmark
 
 160 hand-transcribed segments are maintained in the sibling project:
