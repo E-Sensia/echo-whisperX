@@ -186,3 +186,7 @@ last_name_*.json
 
 # Legacy package manager (project uses uv)
 poetry.lock
+
+# claude
+docs/superpowers/
+.planning/
