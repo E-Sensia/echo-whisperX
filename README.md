@@ -158,6 +158,46 @@ https://user-images.githubusercontent.com/36994049/208298811-e36002ba-3698-4731-
 
 See more examples in other languages [here](EXAMPLES.md).
 
+## Development workflow
+
+This project is a fork of [`m-bain/whisperX`](https://github.com/m-bain/whisperX) maintained for Echo's telephony ASR pipeline. It follows a git-flow layout.
+
+### Branches
+
+- `main` — current echo release (what runs in prod)
+- `develop` — integration of in-progress features
+- `feature/<name>` — individual features, branched from `develop`
+- `archive/<date>-<reason>` — frozen history, reference only
+
+### Syncing with upstream whisperX
+
+The `upstream` remote tracks `m-bain/whisperX`. A local `whisperx-upstream` branch mirrors `upstream/main` and is never pushed to `origin`.
+
+```bash
+git fetch upstream
+
+# Update local mirror (never pushed)
+git checkout whisperx-upstream
+git merge --ff-only upstream/main
+
+# Integrate into develop when ready
+git checkout develop
+git merge whisperx-upstream
+# resolve conflicts, run tests
+uv sync
+pytest tests/
+git push origin develop
+```
+
+### Cutting a release
+
+```bash
+git checkout main
+git merge --no-ff develop
+git tag v<x.y.z>-echo
+git push origin main --tags
+```
+
 ## Python usage 🐍
 
 ```python
