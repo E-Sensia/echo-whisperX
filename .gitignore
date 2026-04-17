@@ -169,3 +169,20 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# --- echo-whisperX ---
+
+# Bench artifacts
+bench/results/
+
+# Large KenLM training corpora and model files (stored outside repo)
+models/corpus_*.txt
+models/*.arpa
+models/*.bin
+
+# Scratch explorations
+explorations/
+last_name_*.json
+
+# Legacy package manager (project uses uv)
+poetry.lock
