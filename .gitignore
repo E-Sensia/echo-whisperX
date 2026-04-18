@@ -190,3 +190,4 @@ poetry.lock
 # claude
 docs/superpowers/
 .planning/
+.claude/

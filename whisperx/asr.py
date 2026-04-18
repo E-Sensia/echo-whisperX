@@ -412,12 +412,18 @@ class FasterWhisperPipeline(Pipeline):
         )
         return {'inputs': features}
 
-    def _forward(self, model_inputs):
+    def _forward(self, model_inputs, **forward_params):
+        # HuggingFace Pipeline unpacks ``self._forward_params`` into **kwargs
+        # when invoking _forward, so we read n_best from either the kwargs
+        # or fall back to the stored dict (both paths must work).
+        n_best = forward_params.get(
+            "n_best", self._forward_params.get("n_best", 1)
+        )
         outputs = self.model.generate_segment_batched(
             model_inputs['inputs'],
             self.tokenizer,
             self.options,
-            n_best=self._forward_params.get("n_best", 1),
+            n_best=n_best,
         )
         return outputs
 
