@@ -115,7 +115,27 @@ class WhisperModel(faster_whisper.WhisperModel):
         tokenizer: Tokenizer,
         options: TranscriptionOptions,
         encoder_output=None,
+        n_best: int = 1,
     ):
+        """Transcribe a batch of pre-computed mel features.
+
+        Parameters
+        ----------
+        n_best : int, default 1
+            When > 1, the method returns the top-``n_best`` beam-search
+            hypotheses for each sample under the ``"hypotheses"`` key of the
+            output dict. Each entry is a list of ``{"text": str,
+            "avg_logprob": float}`` sorted by descending acoustic score. The
+            ``beam_size`` is automatically bumped to ``max(beam_size, n_best)``
+            so CTranslate2 has enough beams.
+
+            **When ``n_best > 1``, the multi-temperature fallback is
+            deliberately SKIPPED**. Callers asking for N-best have their own
+            reranker downstream — mixing T>0 sampling hypotheses into the
+            N-best output would break rerankers that assume comparable T=0
+            beam scores. Setting ``n_best=1`` (default) preserves the exact
+            prior behaviour (fallback runs, no ``"hypotheses"`` key).
+        """
         batch_size = features.shape[0]
         all_tokens = []
         prompt_reset_since = 0
@@ -139,13 +159,17 @@ class WhisperModel(faster_whisper.WhisperModel):
             min(lm_fusion.num_hypotheses, options.beam_size)
             if lm_fusion is not None else 1
         )
+        # If caller asked for N-best, make sure we actually generate that many.
+        if n_best > 1:
+            num_hypotheses = max(num_hypotheses, n_best)
+        effective_beam_size = max(options.beam_size, num_hypotheses)
 
         result = self.model.generate(
                 encoder_output,
                 [prompt] * batch_size,
                 return_scores=True,
                 return_no_speech_prob=True,
-                beam_size=options.beam_size,
+                beam_size=effective_beam_size,
                 patience=options.patience,
                 length_penalty=options.length_penalty,
                 max_length=self.max_length,
@@ -155,6 +179,28 @@ class WhisperModel(faster_whisper.WhisperModel):
                 repetition_penalty=options.repetition_penalty,
                 num_hypotheses=num_hypotheses,
             )
+
+        # Snapshot the full N-best NOW, before the multi-temperature fallback
+        # below can swap out the "winning" hypothesis for a sampling-based one.
+        # Downstream rerankers need the initial beam-search output.
+        hypotheses_batch = None
+        if n_best > 1:
+            hypotheses_batch = []
+            for res in result:
+                per_sample = []
+                for seq_ids, cum_score in zip(
+                    res.sequences_ids[:n_best], res.scores[:n_best]
+                ):
+                    seq_len = len(seq_ids)
+                    cum_lp = cum_score * (seq_len ** options.length_penalty)
+                    avg_lp = cum_lp / (seq_len + 1)
+                    filtered = [t for t in seq_ids if t < tokenizer.eot]
+                    txt = tokenizer.tokenizer.decode(filtered).strip()
+                    per_sample.append({
+                        "text": txt,
+                        "avg_logprob": float(avg_lp),
+                    })
+                hypotheses_batch.append(per_sample)
 
         # Select best hypothesis per sample (with optional LM rescoring)
         tokens_batch = []
@@ -177,13 +223,21 @@ class WhisperModel(faster_whisper.WhisperModel):
         compression_ratios = [_compression_ratio(t) for t in text]
 
         # --- Multi-temperature fallback for failed samples ---
+        # Skipped when the caller requested N-best: callers asking for
+        # multiple hypotheses have their own reranking downstream, and mixing
+        # T>0 sampling hypotheses into the N-best output would break the
+        # rerankers that assume comparable T=0 beam scores (e.g. consensus-
+        # weighted majority). The fallback targets a different failure mode
+        # (hallucinations on a default top-1) that N-best rerankers handle
+        # through other signals.
         has_fallback_temps = len(options.temperatures) > 1
         has_thresholds = (
             options.compression_ratio_threshold is not None
             or options.log_prob_threshold is not None
         )
+        skip_fallback = n_best > 1
 
-        if has_fallback_temps and has_thresholds:
+        if has_fallback_temps and has_thresholds and not skip_fallback:
             for i in range(batch_size):
                 if not _needs_fallback(
                     compression_ratios[i], avg_logprobs[i],
@@ -272,13 +326,16 @@ class WhisperModel(faster_whisper.WhisperModel):
                         i + 1, best[1],
                     )
 
-        return {
+        output = {
             "text": text,
             "avg_logprob": avg_logprobs,
             "no_speech_prob": no_speech_probs,
             "tokens": tokens_batch,
             "compression_ratio": compression_ratios,
         }
+        if hypotheses_batch is not None:
+            output["hypotheses"] = hypotheses_batch
+        return output
 
     def encode(self, features: np.ndarray) -> ctranslate2.StorageView:
         # When the model is running on multiple GPUs, the encoder output should be moved
@@ -356,7 +413,12 @@ class FasterWhisperPipeline(Pipeline):
         return {'inputs': features}
 
     def _forward(self, model_inputs):
-        outputs = self.model.generate_segment_batched(model_inputs['inputs'], self.tokenizer, self.options)
+        outputs = self.model.generate_segment_batched(
+            model_inputs['inputs'],
+            self.tokenizer,
+            self.options,
+            n_best=self._forward_params.get("n_best", 1),
+        )
         return outputs
 
     def postprocess(self, model_outputs):
@@ -384,6 +446,40 @@ class FasterWhisperPipeline(Pipeline):
         return final_iterator
 
     def transcribe(
+        self,
+        audio: Union[str, np.ndarray],
+        batch_size: Optional[int] = None,
+        num_workers=0,
+        language: Optional[str] = None,
+        task: Optional[str] = None,
+        chunk_size=30,
+        print_progress=False,
+        combined_progress=False,
+        verbose=False,
+        progress_callback: ProgressCallback = None,
+        n_best: int = 1,
+    ) -> TranscriptionResult:
+        """Transcribe with VAD segmentation.
+
+        ``n_best`` (default 1, backward compatible): when > 1, each returned
+        segment has a ``"hypotheses"`` key with the top-``n_best`` beam-search
+        candidates captured before any multi-temperature fallback.
+        """
+        # n_best is forwarded to the pipeline via _forward_params.
+        prev_n_best = self._forward_params.get("n_best")
+        self._forward_params["n_best"] = n_best
+        try:
+            return self._do_transcribe(
+                audio, batch_size, num_workers, language, task, chunk_size,
+                print_progress, combined_progress, verbose, progress_callback,
+            )
+        finally:
+            if prev_n_best is None:
+                self._forward_params.pop("n_best", None)
+            else:
+                self._forward_params["n_best"] = prev_n_best
+
+    def _do_transcribe(
         self,
         audio: Union[str, np.ndarray],
         batch_size: Optional[int] = None,
@@ -465,6 +561,7 @@ class FasterWhisperPipeline(Pipeline):
             tokens = out['tokens']
             no_speech_prob = out['no_speech_prob']
             compression_ratio = out['compression_ratio']
+            hypotheses = out.get('hypotheses')  # present only when n_best > 1
 
             if batch_size in [0, 1, None]:
                 text = text[0]
@@ -472,6 +569,8 @@ class FasterWhisperPipeline(Pipeline):
                 tokens = tokens[0]
                 no_speech_prob = no_speech_prob[0]
                 compression_ratio = compression_ratio[0]
+                if hypotheses is not None:
+                    hypotheses = hypotheses[0]
             if verbose:
                 print(f"Transcript: [{round(vad_segments[idx]['start'], 3)} --> {round(vad_segments[idx]['end'], 3)}] {text}")
 
@@ -484,20 +583,21 @@ class FasterWhisperPipeline(Pipeline):
                 text_tokens, duration
             )
 
-            segments.append(
-                {
-                    "text": text,
-                    "start": start_t,
-                    "end": end_t,
-                    "avg_logprob": float(avg_logprob),
-                    "no_speech_prob": float(no_speech_prob),
-                    "compression_ratio": float(compression_ratio),
-                    "tokens_len": int(len(text_tokens)),
-                    "tokens_per_sec": float(tokens_per_sec),
-                    "repeat_adjacent_frac": float(repeat_adjacent_frac),
-                    "repeat_unique_frac": float(repeat_unique_frac),
-                }
-            )
+            seg_dict = {
+                "text": text,
+                "start": start_t,
+                "end": end_t,
+                "avg_logprob": float(avg_logprob),
+                "no_speech_prob": float(no_speech_prob),
+                "compression_ratio": float(compression_ratio),
+                "tokens_len": int(len(text_tokens)),
+                "tokens_per_sec": float(tokens_per_sec),
+                "repeat_adjacent_frac": float(repeat_adjacent_frac),
+                "repeat_unique_frac": float(repeat_unique_frac),
+            }
+            if hypotheses is not None:
+                seg_dict["hypotheses"] = hypotheses
+            segments.append(seg_dict)
 
         # revert the tokenizer if multilingual inference is enabled
         if self.preset_language is None:
@@ -515,6 +615,7 @@ class FasterWhisperPipeline(Pipeline):
         initial_prompt: Optional[str] = None,
         language: Optional[str] = None,
         task: Optional[str] = None,
+        n_best: int = 1,
     ) -> TranscriptionResult:
         """Transcribe a single pre-segmented audio chunk without VAD.
 
@@ -529,6 +630,10 @@ class FasterWhisperPipeline(Pipeline):
                 (overrides the model-level initial_prompt for this call).
             language: Language code (default: model language).
             task: "transcribe" or "translate".
+            n_best: When > 1, attach the top-``n_best`` beam-search hypotheses
+                to the returned segment under the ``"hypotheses"`` key. Useful
+                for downstream rerankers that need the full N-best. Default 1
+                preserves the prior behaviour (no hypotheses key).
         """
         if isinstance(audio, str):
             audio = load_audio(audio)
@@ -571,7 +676,7 @@ class FasterWhisperPipeline(Pipeline):
 
         # Direct decode — no VAD
         out = self.model.generate_segment_batched(
-            features, self.tokenizer, options,
+            features, self.tokenizer, options, n_best=n_best,
         )
 
         text = out["text"][0]
@@ -598,6 +703,8 @@ class FasterWhisperPipeline(Pipeline):
             "repeat_adjacent_frac": float(repeat_adjacent_frac),
             "repeat_unique_frac": float(repeat_unique_frac),
         }
+        if "hypotheses" in out:
+            segment["hypotheses"] = out["hypotheses"][0]
 
         # Revert tokenizer if multilingual
         if self.preset_language is None:
