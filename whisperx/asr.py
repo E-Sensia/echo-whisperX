@@ -397,9 +397,14 @@ class FasterWhisperPipeline(Pipeline):
 
     def _sanitize_parameters(self, **kwargs):
         preprocess_kwargs = {}
+        forward_kwargs = {}
+        if "options" in kwargs:
+            forward_kwargs["options"] = kwargs["options"]
+        if "n_best" in kwargs:
+            forward_kwargs["n_best"] = kwargs["n_best"]
         if "tokenizer" in kwargs:
             preprocess_kwargs["maybe_arg"] = kwargs["maybe_arg"]
-        return preprocess_kwargs, {}, {}
+        return preprocess_kwargs, forward_kwargs, {}
 
     def preprocess(self, audio):
         audio = audio['inputs']
@@ -419,10 +424,14 @@ class FasterWhisperPipeline(Pipeline):
         n_best = forward_params.get(
             "n_best", self._forward_params.get("n_best", 1)
         )
+        # Per-call options override (e.g. caller-scoped initial_prompt) — falls
+        # back to self.options when no override is supplied. This is the
+        # mechanism that keeps self.options immutable across concurrent calls.
+        options = forward_params.get("options", self.options)
         outputs = self.model.generate_segment_batched(
             model_inputs['inputs'],
             self.tokenizer,
-            self.options,
+            options,
             n_best=n_best,
         )
         return outputs
@@ -463,27 +472,28 @@ class FasterWhisperPipeline(Pipeline):
         combined_progress=False,
         verbose=False,
         progress_callback: ProgressCallback = None,
+        initial_prompt: Optional[str] = None,
         n_best: int = 1,
     ) -> TranscriptionResult:
         """Transcribe with VAD segmentation.
 
+        ``initial_prompt`` (default None): per-call override of the decoder
+        prompt.  When provided, it does **not** mutate ``self.options`` —
+        the override lives only for this call, so concurrent callers never
+        leak prompts into each other.
+
         ``n_best`` (default 1, backward compatible): when > 1, each returned
         segment has a ``"hypotheses"`` key with the top-``n_best`` beam-search
-        candidates captured before any multi-temperature fallback.
+        candidates captured before any multi-temperature fallback.  Like
+        ``initial_prompt``, ``n_best`` is call-scoped — it never touches
+        ``self._forward_params`` and is safe under concurrent callers.
         """
-        # n_best is forwarded to the pipeline via _forward_params.
-        prev_n_best = self._forward_params.get("n_best")
-        self._forward_params["n_best"] = n_best
-        try:
-            return self._do_transcribe(
-                audio, batch_size, num_workers, language, task, chunk_size,
-                print_progress, combined_progress, verbose, progress_callback,
-            )
-        finally:
-            if prev_n_best is None:
-                self._forward_params.pop("n_best", None)
-            else:
-                self._forward_params["n_best"] = prev_n_best
+        return self._do_transcribe(
+            audio, batch_size, num_workers, language, task, chunk_size,
+            print_progress, combined_progress, verbose, progress_callback,
+            initial_prompt=initial_prompt,
+            n_best=n_best,
+        )
 
     def _do_transcribe(
         self,
@@ -497,6 +507,8 @@ class FasterWhisperPipeline(Pipeline):
         combined_progress=False,
         verbose=False,
         progress_callback: ProgressCallback = None,
+        initial_prompt: Optional[str] = None,
+        n_best: int = 1,
     ) -> TranscriptionResult:
         if isinstance(audio, str):
             audio = load_audio(audio)
@@ -544,18 +556,30 @@ class FasterWhisperPipeline(Pipeline):
                     language=language,
                 )
 
+        # Build a call-scoped options instance — never mutate self.options so
+        # that concurrent callers cannot leak prompts/suppress_tokens into
+        # each other.
+        call_options = self.options
+        if initial_prompt is not None:
+            call_options = replace(call_options, initial_prompt=initial_prompt)
         if self.suppress_numerals:
-            previous_suppress_tokens = self.options.suppress_tokens
             numeral_symbol_tokens = find_numeral_symbol_tokens(self.tokenizer)
             logger.info("Suppressing numeral and symbol tokens")
-            new_suppressed_tokens = numeral_symbol_tokens + self.options.suppress_tokens
-            new_suppressed_tokens = list(set(new_suppressed_tokens))
-            self.options = replace(self.options, suppress_tokens=new_suppressed_tokens)
+            new_suppressed_tokens = list(set(
+                numeral_symbol_tokens + call_options.suppress_tokens
+            ))
+            call_options = replace(call_options, suppress_tokens=new_suppressed_tokens)
 
         segments: List[SingleSegment] = []
         batch_size = batch_size or self._batch_size
         total_segments = len(vad_segments)
-        for idx, out in enumerate(self.__call__(data(audio, vad_segments), batch_size=batch_size, num_workers=num_workers)):
+        for idx, out in enumerate(self.__call__(
+            data(audio, vad_segments),
+            batch_size=batch_size,
+            num_workers=num_workers,
+            options=call_options,
+            n_best=n_best,
+        )):
             if print_progress:
                 base_progress = ((idx + 1) / total_segments) * 100
                 percent_complete = base_progress / 2 if combined_progress else base_progress
@@ -608,10 +632,6 @@ class FasterWhisperPipeline(Pipeline):
         # revert the tokenizer if multilingual inference is enabled
         if self.preset_language is None:
             self.tokenizer = None
-
-        # revert suppressed tokens if suppress_numerals is enabled
-        if self.suppress_numerals:
-            self.options = replace(self.options, suppress_tokens=previous_suppress_tokens)
 
         return {"segments": segments, "language": language}
 
@@ -727,6 +747,7 @@ class FasterWhisperPipeline(Pipeline):
         language: Optional[str] = None,
         task: Optional[str] = None,
         chunk_size=30,
+        initial_prompt: Optional[str] = None,
     ) -> List[TranscriptionResult]:
         """Transcribe multiple audio arrays in a single batched pass.
 
@@ -735,6 +756,9 @@ class FasterWhisperPipeline(Pipeline):
         results back to per-audio outputs.  This is significantly more efficient
         than calling transcribe() N times when processing many short audio
         chunks concurrently.
+
+        ``initial_prompt`` is applied per call without mutating ``self.options``
+        so concurrent callers cannot leak prompts into each other.
         """
         if issubclass(type(self.vad_model), Vad):
             preprocess_fn = self.vad_model.preprocess_audio
@@ -784,11 +808,16 @@ class FasterWhisperPipeline(Pipeline):
                     language=language,
                 )
 
+        # Call-scoped options instance — never mutate self.options.
+        call_options = self.options
+        if initial_prompt is not None:
+            call_options = replace(call_options, initial_prompt=initial_prompt)
         if self.suppress_numerals:
-            previous_suppress_tokens = self.options.suppress_tokens
             numeral_symbol_tokens = find_numeral_symbol_tokens(self.tokenizer)
-            new_suppressed_tokens = list(set(numeral_symbol_tokens + self.options.suppress_tokens))
-            self.options = replace(self.options, suppress_tokens=new_suppressed_tokens)
+            new_suppressed_tokens = list(set(
+                numeral_symbol_tokens + call_options.suppress_tokens
+            ))
+            call_options = replace(call_options, suppress_tokens=new_suppressed_tokens)
 
         # 3. Combined data generator across all audios
         batch_size = batch_size or self._batch_size
@@ -822,7 +851,7 @@ class FasterWhisperPipeline(Pipeline):
             for i in range(0, len(precomputed), batch_size):
                 batch_features = torch.stack(precomputed[i:i + batch_size])
                 batch_out = self.model.generate_segment_batched(
-                    batch_features, self.tokenizer, self.options
+                    batch_features, self.tokenizer, call_options
                 )
                 # Unbatch: convert dict-of-lists to list-of-dicts
                 n = batch_features.shape[0]
@@ -843,7 +872,12 @@ class FasterWhisperPipeline(Pipeline):
 
             # 4. Process all segments in combined batches
             raw_outputs = []
-            for out in self.__call__(data_multi(), batch_size=batch_size, num_workers=num_workers):
+            for out in self.__call__(
+                data_multi(),
+                batch_size=batch_size,
+                num_workers=num_workers,
+                options=call_options,
+            ):
                 raw_outputs.append(out)
 
         # 5. Demux results back to per-audio
@@ -891,8 +925,6 @@ class FasterWhisperPipeline(Pipeline):
         # Revert state
         if self.preset_language is None:
             self.tokenizer = None
-        if self.suppress_numerals:
-            self.options = replace(self.options, suppress_tokens=previous_suppress_tokens)
 
         return results
 
