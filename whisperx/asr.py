@@ -748,6 +748,7 @@ class FasterWhisperPipeline(Pipeline):
         task: Optional[str] = None,
         chunk_size=30,
         initial_prompt: Optional[str] = None,
+        n_best: int = 1,
     ) -> List[TranscriptionResult]:
         """Transcribe multiple audio arrays in a single batched pass.
 
@@ -759,6 +760,12 @@ class FasterWhisperPipeline(Pipeline):
 
         ``initial_prompt`` is applied per call without mutating ``self.options``
         so concurrent callers cannot leak prompts into each other.
+
+        ``n_best`` (default 1, backward compatible): when > 1, each returned
+        segment has a ``"hypotheses"`` key with the top-``n_best`` beam-search
+        candidates captured before any multi-temperature fallback.  Like
+        ``initial_prompt``, ``n_best`` is call-scoped — it never touches
+        ``self._forward_params`` and is safe under concurrent callers.
         """
         if issubclass(type(self.vad_model), Vad):
             preprocess_fn = self.vad_model.preprocess_audio
@@ -851,18 +858,23 @@ class FasterWhisperPipeline(Pipeline):
             for i in range(0, len(precomputed), batch_size):
                 batch_features = torch.stack(precomputed[i:i + batch_size])
                 batch_out = self.model.generate_segment_batched(
-                    batch_features, self.tokenizer, call_options
+                    batch_features, self.tokenizer, call_options,
+                    n_best=n_best,
                 )
                 # Unbatch: convert dict-of-lists to list-of-dicts
+                batch_hypotheses = batch_out.get("hypotheses")
                 n = batch_features.shape[0]
                 for j in range(n):
-                    raw_outputs.append({
+                    item = {
                         "text": batch_out["text"][j],
                         "avg_logprob": batch_out["avg_logprob"][j],
                         "no_speech_prob": batch_out["no_speech_prob"][j],
                         "tokens": batch_out["tokens"][j],
                         "compression_ratio": batch_out["compression_ratio"][j],
-                    })
+                    }
+                    if batch_hypotheses is not None:
+                        item["hypotheses"] = batch_hypotheses[j]
+                    raw_outputs.append(item)
         else:
             def data_multi():
                 for audio_idx, seg, audio in all_vad_segments:
@@ -877,6 +889,7 @@ class FasterWhisperPipeline(Pipeline):
                 batch_size=batch_size,
                 num_workers=num_workers,
                 options=call_options,
+                n_best=n_best,
             ):
                 raw_outputs.append(out)
 
@@ -891,6 +904,7 @@ class FasterWhisperPipeline(Pipeline):
             tokens = out['tokens']
             no_speech_prob = out['no_speech_prob']
             compression_ratio = out['compression_ratio']
+            hypotheses = out.get('hypotheses')  # present only when n_best > 1
 
             # Pipeline iterator path wraps single items in lists when batch_size <= 1
             if not precompute_features and batch_size in [0, 1, None]:
@@ -899,6 +913,8 @@ class FasterWhisperPipeline(Pipeline):
                 tokens = tokens[0]
                 no_speech_prob = no_speech_prob[0]
                 compression_ratio = compression_ratio[0]
+                if hypotheses is not None:
+                    hypotheses = hypotheses[0]
 
             start_t = round(vad_seg['start'], 3)
             end_t = round(vad_seg['end'], 3)
@@ -909,7 +925,7 @@ class FasterWhisperPipeline(Pipeline):
                 text_tokens, duration
             )
 
-            results[audio_idx]["segments"].append({
+            seg_dict = {
                 "text": text,
                 "start": start_t,
                 "end": end_t,
@@ -920,7 +936,10 @@ class FasterWhisperPipeline(Pipeline):
                 "tokens_per_sec": float(tokens_per_sec),
                 "repeat_adjacent_frac": float(repeat_adjacent_frac),
                 "repeat_unique_frac": float(repeat_unique_frac),
-            })
+            }
+            if hypotheses is not None:
+                seg_dict["hypotheses"] = hypotheses
+            results[audio_idx]["segments"].append(seg_dict)
 
         # Revert state
         if self.preset_language is None:

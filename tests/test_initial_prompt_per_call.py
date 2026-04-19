@@ -322,6 +322,93 @@ class TestTranscribeMultiInitialPrompt:
 # n_best must also be call-scoped — no mutation of self._forward_params
 # ---------------------------------------------------------------------------
 
+class TestTranscribeMultiNBest:
+    """n_best must be wired through transcribe_multi() like it is for transcribe()."""
+
+    def _generate_with_hypotheses(self):
+        """Mock of generate_segment_batched that emits hypotheses when n_best>1."""
+        def generate(features, tokenizer, options, n_best=1, **_kw):
+            out = {
+                "text": ["top"],
+                "avg_logprob": [-0.3],
+                "no_speech_prob": [0.05],
+                "tokens": [[100]],
+                "compression_ratio": [1.5],
+            }
+            if n_best > 1:
+                out["hypotheses"] = [[
+                    {"text": "top", "avg_logprob": -0.3, "tokens": [100]},
+                    {"text": "alt", "avg_logprob": -0.5, "tokens": [101]},
+                ]]
+            return out
+        return generate
+
+    def test_accepts_n_best_kwarg(self):
+        pipeline = _make_pipeline()
+        audios = [np.zeros(16000 * 3, dtype=np.float32)]
+        pipeline.transcribe_multi(audios, n_best=3)
+
+    def test_n_best_propagated_to_generate(self):
+        pipeline = _make_pipeline()
+        audios = [np.zeros(16000 * 3, dtype=np.float32)]
+
+        pipeline.transcribe_multi(audios, n_best=4)
+
+        call_kwargs = pipeline.model.generate_segment_batched.call_args.kwargs
+        assert call_kwargs.get("n_best") == 4
+
+    def test_n_best_propagated_precompute_features(self):
+        """precompute_features bypasses __call__ and hits generate_segment_batched
+        directly — n_best must reach that branch too."""
+        pipeline = _make_pipeline()
+        audios = [np.zeros(16000 * 3, dtype=np.float32)]
+
+        pipeline.transcribe_multi(
+            audios, n_best=2, precompute_features=True,
+        )
+
+        call_kwargs = pipeline.model.generate_segment_batched.call_args.kwargs
+        assert call_kwargs.get("n_best") == 2
+
+    def test_hypotheses_attached_when_n_best_gt_1(self):
+        pipeline = _make_pipeline()
+        pipeline.model.generate_segment_batched.side_effect = (
+            self._generate_with_hypotheses()
+        )
+        audios = [np.zeros(16000 * 3, dtype=np.float32)]
+
+        results = pipeline.transcribe_multi(audios, n_best=2)
+
+        seg = results[0]["segments"][0]
+        assert "hypotheses" in seg
+        assert len(seg["hypotheses"]) == 2
+        assert seg["hypotheses"][0]["text"] == "top"
+
+    def test_hypotheses_attached_precompute_features(self):
+        pipeline = _make_pipeline()
+        pipeline.model.generate_segment_batched.side_effect = (
+            self._generate_with_hypotheses()
+        )
+        audios = [np.zeros(16000 * 3, dtype=np.float32)]
+
+        results = pipeline.transcribe_multi(
+            audios, n_best=2, precompute_features=True,
+        )
+
+        seg = results[0]["segments"][0]
+        assert "hypotheses" in seg
+        assert len(seg["hypotheses"]) == 2
+
+    def test_default_no_hypotheses_key(self):
+        """Backward compat: n_best=1 (default) must not add a hypotheses key."""
+        pipeline = _make_pipeline()
+        audios = [np.zeros(16000 * 3, dtype=np.float32)]
+
+        results = pipeline.transcribe_multi(audios)
+
+        assert "hypotheses" not in results[0]["segments"][0]
+
+
 class TestNBestCallScoped:
     def test_forward_params_not_mutated_during_call(self):
         """n_best must reach generate_segment_batched WITHOUT going through
