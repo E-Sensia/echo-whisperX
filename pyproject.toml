@@ -2,7 +2,7 @@
 urls = { repository = "https://github.com/E-Sensia/echo-whisperX" }
 authors = [{ name = "Max Bain" }]
 name = "echo-whisperx"
-version = "3.8.6"
+version = "3.8.7"
 description = "Time-Accurate Automatic Speech Recognition using Whisper."
 readme = "README.md"
 requires-python = ">=3.10, <3.14"
@@ -48,27 +48,9 @@ override-dependencies = [
     "torchcodec>=0.7,<1; (sys_platform == 'linux' and platform_machine == 'x86_64') or sys_platform == 'darwin' or sys_platform == 'win32'",
 ]
 
-[tool.uv.sources]
-torch = [
-  { index = "pytorch-cpu", marker = "sys_platform == 'darwin'" },
-  { index = "pytorch-cpu", marker = "platform_machine != 'x86_64' and sys_platform != 'darwin'" },
-  { index = "pytorch", marker = "platform_machine == 'x86_64' and sys_platform != 'darwin'" },
-]
-torchaudio = [
-  { index = "pytorch-cpu", marker = "sys_platform == 'darwin'" },
-  { index = "pytorch-cpu", marker = "platform_machine != 'x86_64' and sys_platform != 'darwin'" },
-  { index = "pytorch", marker = "platform_machine == 'x86_64' and sys_platform != 'darwin'" },
-]
-triton = [
-  { index = "pytorch", marker = "sys_platform == 'linux'" },
-]
-
-[[tool.uv.index]]
-name = "pytorch"
-url = "https://download.pytorch.org/whl/cu128"
-explicit = true
-
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
+# NOTE: pas de [tool.uv.sources]/[[tool.uv.index]] torch ici.
+# En tant que librairie consommée (echo-lib → EchoNet), echo-whisperx ne doit
+# PAS imposer d'index PyTorch : uv propage ces index aux projets consommateurs
+# et provoque un conflit avec leur propre index (ex. cu129). Les consommateurs
+# choisissent leur build torch ; en standalone, configurer l'index via la CLI uv
+# (--index https://download.pytorch.org/whl/cu1XX) ou un pip.conf.
